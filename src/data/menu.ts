@@ -254,6 +254,6 @@ export const TEMPLE_INFO = {
   saturdayHours: "Saturdays 4:00 PM – 6:00 PM",
   sundayHours: "Sundays 8:00 AM – 11:00 AM",
   note: "Orders and reservations can be collected at ISKCON Halifax during Saturday and Sunday temple programs or arranged by phone.",
-  zeffyUrl: "https://www.zeffy.com/en-CA/ticketing/govindas-kitchen",
-  zeffyEmbedUrl: "https://www.zeffy.com/embed/ticketing/govindas-kitchen",
+  zeffyUrl: "https://www.zeffy.com/en-CA/ticketing/govindas-snacks",
+  zeffyEmbedUrl: "https://www.zeffy.com/embed/ticketing/govindas-snacks",
 };
