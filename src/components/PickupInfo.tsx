@@ -1,15 +1,17 @@
+'use client';
+
 import React from 'react';
-import { MapPin, Clock, Phone, MessageSquare, HeartHandshake } from 'lucide-react';
+import { MapPin, Clock, Phone, HeartHandshake, ShoppingBag, ShieldCheck } from 'lucide-react';
 import { TEMPLE_INFO } from '@/data/menu';
+import { useCart } from '@/context/CartContext';
 
 export default function PickupInfo() {
+  const { openZeffy } = useCart();
+
   const encodedAddress = encodeURIComponent(
-    '29 Westwood Boulevard, Upper Tantallon, NS, Canada'
+    '29 Westwood Boulevard, Upper Tantallon, NS B3Z 1L3, Canada'
   );
   const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodedAddress}`;
-  const whatsappUrl = `https://wa.me/${TEMPLE_INFO.whatsappNumber}?text=${encodeURIComponent(
-    'Hare Krishna! I have an inquiry regarding Govinda’s Kitchen snacks and pickup at ISKCON Halifax.'
-  )}`;
 
   return (
     <section id="pickup" className="py-16 sm:py-24 bg-white border-b border-stone-200">
@@ -24,8 +26,8 @@ export default function PickupInfo() {
             How to Order &amp; Collect Your Snacks
           </h2>
           <p className="mt-3 text-stone-600 text-sm sm:text-base leading-relaxed">
-            Govinda&apos;s Kitchen is based at the ISKCON Halifax Temple. While our online payment gateway
-            (Zeffy) is being finalized, you can easily reserve your items online and pick them up at the temple!
+            Govinda&apos;s Kitchen operates directly from the ISKCON Halifax Temple. Order and pay online seamlessly
+            with 0% fees through our verified Zeffy store, and pick up your fresh delicacies during temple weekend programs!
           </p>
         </div>
 
@@ -36,10 +38,10 @@ export default function PickupInfo() {
               1
             </span>
             <h3 className="font-serif font-bold text-lg text-stone-900 mb-2">
-              Select Your Delicacies
+              Browse Our Sattvik Delicacies
             </h3>
             <p className="text-stone-600 text-xs sm:text-sm leading-relaxed">
-              Explore the menu above and add your favorite Sattvik snacks, fasting items, or ready meals to your Order Tray.
+              Explore authentic vegetarian snacks, Ekadashi fasting treats, and gourmet ready meals. All prepared without onion or garlic with pure devotion.
             </p>
           </div>
 
@@ -48,10 +50,10 @@ export default function PickupInfo() {
               2
             </span>
             <h3 className="font-serif font-bold text-lg text-stone-900 mb-2">
-              Reserve with Us
+              Order Online via Zeffy
             </h3>
             <p className="text-stone-600 text-xs sm:text-sm leading-relaxed">
-              Click &ldquo;Reserve via WhatsApp&rdquo; or call us directly. Your tray will be automatically formatted into an easy reservation message.
+              Click &ldquo;Order on Zeffy&rdquo; on any item to complete your order online with 0% platform deductions. You&apos;ll receive an instant confirmation receipt.
             </p>
           </div>
 
@@ -63,7 +65,7 @@ export default function PickupInfo() {
               Pick Up at the Temple
             </h3>
             <p className="text-stone-600 text-xs sm:text-sm leading-relaxed">
-              Collect your items during temple programs (Saturdays 4:00 PM – 6:00 PM, Sundays 8:00 AM – 11:00 AM), during festival events, or by prior arrangement.
+              Collect your freshly packaged items at the ISKCON Halifax counter on Saturdays (4:00 PM – 6:00 PM) or Sundays (8:00 AM – 11:00 AM).
             </p>
           </div>
         </div>
@@ -127,6 +129,14 @@ export default function PickupInfo() {
               </div>
 
               <div className="pt-2 flex flex-wrap gap-3">
+                <button
+                  onClick={openZeffy}
+                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-amber-400 hover:bg-amber-300 text-stone-950 font-bold text-xs sm:text-sm shadow-md transition-all active:scale-95 cursor-pointer"
+                >
+                  <ShoppingBag className="w-4 h-4 text-stone-950" />
+                  <span>Order on Zeffy Store</span>
+                </button>
+
                 <a
                   href={mapsUrl}
                   target="_blank"
@@ -138,13 +148,11 @@ export default function PickupInfo() {
                 </a>
 
                 <a
-                  href={whatsappUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#4d8b31] hover:bg-[#3c7025] text-white font-semibold text-xs sm:text-sm shadow-md transition-all"
+                  href={`tel:${TEMPLE_INFO.phone}`}
+                  className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white/10 hover:bg-white/15 border border-white/20 text-white font-medium text-xs sm:text-sm transition-all"
                 >
-                  <MessageSquare className="w-4 h-4" />
-                  <span>Chat on WhatsApp</span>
+                  <Phone className="w-4 h-4 text-amber-300" />
+                  <span>Call Us</span>
                 </a>
               </div>
             </div>
@@ -158,8 +166,14 @@ export default function PickupInfo() {
               <p className="text-stone-200 leading-relaxed">
                 Govinda&apos;s Kitchen is managed by devotees of ISKCON Halifax. 100% of proceeds from these snacks directly support temple worship, prasadam distribution, and community services.
               </p>
-              <div className="p-3.5 rounded-xl bg-black/20 border border-white/10 text-xs text-stone-300">
-                💡 <strong>Attending temple programs?</strong> Simply mention your name at the Govinda&apos;s counter to collect your prepared parcel.
+              <div className="p-3.5 rounded-xl bg-black/20 border border-white/10 text-xs text-stone-300 space-y-1.5">
+                <div className="flex items-center gap-1.5 text-emerald-300 font-semibold">
+                  <ShieldCheck className="w-4 h-4" />
+                  <span>Easy Weekend Pickup</span>
+                </div>
+                <p>
+                  Show your Zeffy email confirmation or simply mention your name at the Govinda&apos;s counter to collect your prepared parcel.
+                </p>
               </div>
             </div>
           </div>
