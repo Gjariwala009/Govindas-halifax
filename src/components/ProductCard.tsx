@@ -1,27 +1,21 @@
 'use client';
 
-import React, { useState } from 'react';
+import React from 'react';
+import Image from 'next/image';
 import { MenuItem } from '@/data/menu';
 import { useCart } from '@/context/CartContext';
-import { Plus, Check, Sparkles, Clock } from 'lucide-react';
+import { ShoppingBag, Sparkles, Clock } from 'lucide-react';
 
 interface ProductCardProps {
   item: MenuItem;
 }
 
 export default function ProductCard({ item }: ProductCardProps) {
-  const { addItem } = useCart();
-  const [justAdded, setJustAdded] = useState(false);
-
-  const handleAdd = () => {
-    addItem(item);
-    setJustAdded(true);
-    setTimeout(() => setJustAdded(false), 1200);
-  };
+  const { openZeffy } = useCart();
 
   return (
     <div className="group relative flex flex-col justify-between bg-white rounded-2xl border border-stone-200/90 shadow-sm hover:shadow-md hover:border-amber-400/60 transition-all p-5">
-      {/* Top badges */}
+      {/* Top badges & Image */}
       <div>
         <div className="flex items-start justify-between gap-2 mb-2.5">
           <span className="text-[11px] uppercase tracking-wider font-semibold px-2.5 py-0.5 rounded-full bg-stone-100 text-stone-600 border border-stone-200">
@@ -35,6 +29,19 @@ export default function ProductCard({ item }: ProductCardProps) {
           )}
         </div>
 
+        {/* Product Visual */}
+        {item.image && (
+          <div className="relative w-full aspect-square mb-3.5 rounded-xl bg-stone-50/70 overflow-hidden flex items-center justify-center p-3 border border-stone-100/80">
+            <Image
+              src={item.image}
+              alt={item.name}
+              fill
+              className="object-contain p-2 transition-transform duration-300 group-hover:scale-105"
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+            />
+          </div>
+        )}
+
         {/* Title and Unit */}
         <div className="mb-2">
           <h3 className="font-serif font-bold text-lg text-stone-900 group-hover:text-[#3e0e14] transition-colors leading-snug">
@@ -42,7 +49,7 @@ export default function ProductCard({ item }: ProductCardProps) {
           </h3>
           {item.weightOrUnit && (
             <span className="text-xs text-stone-400 font-medium">
-              Packaged in {item.weightOrUnit}
+              {item.weightOrUnit}
             </span>
           )}
         </div>
@@ -72,12 +79,12 @@ export default function ProductCard({ item }: ProductCardProps) {
           {item.isReadyToEat && (
             <span className="inline-flex items-center gap-1 text-[10px] font-medium px-2 py-0.5 rounded-md bg-sky-50 text-sky-800 border border-sky-200">
               <Clock className="w-2.5 h-2.5 text-sky-600" />
-              Ready in 5m
+              Ready to Enjoy
             </span>
           )}
         </div>
 
-        {/* Bottom Price & Add CTA */}
+        {/* Bottom Price & Order CTA */}
         <div className="pt-3 border-t border-stone-100 flex items-center justify-between">
           <div>
             <div className="text-xs text-stone-400">Price</div>
@@ -88,24 +95,11 @@ export default function ProductCard({ item }: ProductCardProps) {
           </div>
 
           <button
-            onClick={handleAdd}
-            className={`inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all active:scale-95 ${
-              justAdded
-                ? 'bg-emerald-600 text-white'
-                : 'bg-[#3e0e14] hover:bg-[#571720] text-white shadow-sm'
-            }`}
+            onClick={openZeffy}
+            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all active:scale-95 bg-[#3e0e14] hover:bg-[#571720] text-white shadow-sm cursor-pointer"
           >
-            {justAdded ? (
-              <>
-                <Check className="w-4 h-4" />
-                <span>Added!</span>
-              </>
-            ) : (
-              <>
-                <Plus className="w-4 h-4" />
-                <span>Add to Order</span>
-              </>
-            )}
+            <ShoppingBag className="w-4 h-4 text-amber-300" />
+            <span>Order on Zeffy</span>
           </button>
         </div>
       </div>

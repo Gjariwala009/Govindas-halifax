@@ -1,6 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
-import { Leaf, Heart, Phone, MapPin } from 'lucide-react';
+import { Leaf, Heart, Phone, MapPin, Clock } from 'lucide-react';
 import { TEMPLE_INFO } from '@/data/menu';
 
 export default function Footer() {
@@ -64,7 +64,7 @@ export default function Footer() {
               </li>
               <li>
                 <a href="#pickup" className="hover:text-amber-300 transition-colors">
-                  Temple Pickup &amp; Sunday Feast
+                  Temple Pickup &amp; Programs
                 </a>
               </li>
             </ul>
@@ -81,6 +81,14 @@ export default function Footer() {
                 <div>
                   <strong className="text-stone-200 block">{TEMPLE_INFO.templeName}</strong>
                   <span>{TEMPLE_INFO.address}</span>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-2.5">
+                <Clock className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+                <div>
+                  <strong className="text-stone-200 block">Weekly Programs &amp; Pickup:</strong>
+                  <span>Saturdays 4:00 PM – 6:00 PM<br />Sundays 8:00 AM – 11:00 AM</span>
                 </div>
               </div>
 

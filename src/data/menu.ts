@@ -1,10 +1,25 @@
+export const CATEGORIES = [
+  'All',
+  'Sandwiches',
+  'Snacks',
+  'Desserts',
+  'Beverages',
+  'Chikki & Sweets',
+  'Ready to Eat',
+  'Khakhra',
+  'Pickles',
+] as const;
+
+export type Category = (typeof CATEGORIES)[number];
+
 export interface MenuItem {
   id: string;
   name: string;
-  category: 'Snacks' | 'Chikki & Sweets' | 'Khakhra' | 'Ready to Eat' | 'Pickles' | 'Desserts';
+  category: Category;
   price: number; // in CAD
   weightOrUnit?: string;
   description: string;
+  image?: string;
   isEkadashi?: boolean;
   isGlutenFree?: boolean;
   isReadyToEat?: boolean;
@@ -12,21 +27,12 @@ export interface MenuItem {
   badge?: string;
 }
 
-export const CATEGORIES = [
-  'All',
-  'Snacks',
-  'Chikki & Sweets',
-  'Ready to Eat',
-  'Khakhra',
-  'Desserts',
-  'Pickles',
-] as const;
-
-export type Category = (typeof CATEGORIES)[number];
-
 export const MENU_ITEMS: MenuItem[] = [
+  // Fresh Sandwiches & Street Food (Synced with Govinda's Zeffy Store)
+
   {
     id: 'bombay-bhel',
+    image: '/images/products/bombay-bhel.png',
     name: 'Bombay Bhel',
     category: 'Snacks',
     price: 5,
@@ -37,6 +43,7 @@ export const MENU_ITEMS: MenuItem[] = [
   },
   {
     id: 'gulkand',
+    image: '/images/products/gulkand.png',
     name: 'Gulkand',
     category: 'Chikki & Sweets',
     price: 9,
@@ -46,6 +53,7 @@ export const MENU_ITEMS: MenuItem[] = [
   },
   {
     id: 'peanut-chikki',
+    image: '/images/products/peanut-chikki.png',
     name: 'Peanut Chikki',
     category: 'Chikki & Sweets',
     price: 4,
@@ -56,6 +64,7 @@ export const MENU_ITEMS: MenuItem[] = [
   },
   {
     id: 'rajgira-chikki',
+    image: '/images/products/rajgira-chikki.png',
     name: 'Rajgira Chikki',
     category: 'Chikki & Sweets',
     price: 4,
@@ -66,6 +75,7 @@ export const MENU_ITEMS: MenuItem[] = [
   },
   {
     id: 'sesame-chikki',
+    image: '/images/products/sesame-chikki.png',
     name: 'Sesame Chikki',
     category: 'Chikki & Sweets',
     price: 4,
@@ -75,6 +85,7 @@ export const MENU_ITEMS: MenuItem[] = [
   },
   {
     id: 'makhana',
+    image: '/images/products/makhana.png',
     name: 'Makhana (Fox Nuts)',
     category: 'Snacks',
     price: 6,
@@ -86,6 +97,7 @@ export const MENU_ITEMS: MenuItem[] = [
   },
   {
     id: 'banana-chips-yellow',
+    image: '/images/products/banana-chips-yellow.png',
     name: 'Banana Chips (Yellow)',
     category: 'Snacks',
     price: 4,
@@ -95,6 +107,7 @@ export const MENU_ITEMS: MenuItem[] = [
   },
   {
     id: 'banana-chips-pepper',
+    image: '/images/products/banana-chips-pepper.png',
     name: 'Banana Chips (Pepper)',
     category: 'Snacks',
     price: 4,
@@ -104,6 +117,7 @@ export const MENU_ITEMS: MenuItem[] = [
   },
   {
     id: 'beetroot-chips',
+    image: '/images/products/beetroot-chips.png',
     name: 'Beetroot Chips',
     category: 'Snacks',
     price: 6,
@@ -113,6 +127,7 @@ export const MENU_ITEMS: MenuItem[] = [
   },
   {
     id: 'khakhra-jeera',
+    image: '/images/products/khakhra-jeera.png',
     name: 'Khakhra Jeera',
     category: 'Khakhra',
     price: 3,
@@ -121,6 +136,7 @@ export const MENU_ITEMS: MenuItem[] = [
   },
   {
     id: 'khakhra-methi',
+    image: '/images/products/khakhra-methi.png',
     name: 'Khakhra Methi',
     category: 'Khakhra',
     price: 3,
@@ -129,6 +145,7 @@ export const MENU_ITEMS: MenuItem[] = [
   },
   {
     id: 'farali-chivda',
+    image: '/images/products/farali-chivda.png',
     name: 'Farali Chivda',
     category: 'Snacks',
     price: 6,
@@ -140,6 +157,7 @@ export const MENU_ITEMS: MenuItem[] = [
   },
   {
     id: 'mango-pickle',
+    image: '/images/products/mango-pickle.png',
     name: 'Mango Pickle',
     category: 'Pickles',
     price: 7,
@@ -148,6 +166,7 @@ export const MENU_ITEMS: MenuItem[] = [
   },
   {
     id: 'lemon-pickle',
+    image: '/images/products/lemon-pickle.png',
     name: 'Lemon Pickle',
     category: 'Pickles',
     price: 7,
@@ -156,6 +175,7 @@ export const MENU_ITEMS: MenuItem[] = [
   },
   {
     id: 'paneer-tikka-masala',
+    image: '/images/products/paneer-tikka-masala.png',
     name: 'Paneer Tikka Masala',
     category: 'Ready to Eat',
     price: 6,
@@ -166,6 +186,7 @@ export const MENU_ITEMS: MenuItem[] = [
   },
   {
     id: 'dal-makhani',
+    image: '/images/products/dal-makhani.png',
     name: 'Dal Makhani',
     category: 'Ready to Eat',
     price: 6,
@@ -176,6 +197,7 @@ export const MENU_ITEMS: MenuItem[] = [
   },
   {
     id: 'sabudana-khichdi',
+    image: '/images/products/sabudana-khichdi.png',
     name: 'Sabudana Khichdi',
     category: 'Ready to Eat',
     price: 6,
@@ -188,6 +210,7 @@ export const MENU_ITEMS: MenuItem[] = [
   },
   {
     id: 'veg-kolhapuri',
+    image: '/images/products/veg-kolhapuri.png',
     name: 'Veg. Kolhapuri',
     category: 'Ready to Eat',
     price: 6,
@@ -197,6 +220,7 @@ export const MENU_ITEMS: MenuItem[] = [
   },
   {
     id: 'dudhi-halwa',
+    image: '/images/products/dudhi-halwa.png',
     name: 'Dudhi Halwa',
     category: 'Desserts',
     price: 6,
@@ -206,6 +230,7 @@ export const MENU_ITEMS: MenuItem[] = [
   },
   {
     id: 'gajar-halwa',
+    image: '/images/products/gajar-halwa.png',
     name: 'Gajar Halwa',
     category: 'Desserts',
     price: 6,
@@ -225,6 +250,10 @@ export const TEMPLE_INFO = {
   templeName: "ISKCON Halifax Temple",
   phone: "+1 (902) 329-9889",
   whatsappNumber: "19023299889",
-  hours: "Sundays 4:00 PM – 7:30 PM (Sunday Feast) & during Temple Festivals",
-  note: "Orders and reservations can be collected at ISKCON Halifax during the Sunday Feast or arranged by phone.",
+  hours: "Saturdays 4:00 PM – 6:00 PM & Sundays 8:00 AM – 11:00 AM (during Temple Programs & Festivals)",
+  saturdayHours: "Saturdays 4:00 PM – 6:00 PM",
+  sundayHours: "Sundays 8:00 AM – 11:00 AM",
+  note: "Orders and reservations can be collected at ISKCON Halifax during Saturday and Sunday temple programs or arranged by phone.",
+  zeffyUrl: "https://www.zeffy.com/en-CA/ticketing/govindas-kitchen",
+  zeffyEmbedUrl: "https://www.zeffy.com/embed/ticketing/govindas-kitchen",
 };

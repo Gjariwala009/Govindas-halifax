@@ -14,6 +14,9 @@ interface CartContextType {
   openCart: () => void;
   closeCart: () => void;
   toggleCart: () => void;
+  isZeffyOpen: boolean;
+  openZeffy: () => void;
+  closeZeffy: () => void;
   addItem: (item: MenuItem) => void;
   removeItem: (id: string) => void;
   updateQuantity: (id: string, quantity: number) => void;
@@ -27,6 +30,7 @@ const CartContext = createContext<CartContextType | undefined>(undefined);
 export function CartProvider({ children }: { children: React.ReactNode }) {
   const [cart, setCart] = useState<CartItem[]>([]);
   const [isOpen, setIsOpen] = useState(false);
+  const [isZeffyOpen, setIsZeffyOpen] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
 
   // Load cart from localStorage
@@ -61,6 +65,9 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
   const openCart = () => setIsOpen(true);
   const closeCart = () => setIsOpen(false);
   const toggleCart = () => setIsOpen((prev) => !prev);
+
+  const openZeffy = () => setIsZeffyOpen(true);
+  const closeZeffy = () => setIsZeffyOpen(false);
 
   const addItem = (item: MenuItem) => {
     setCart((prev) => {
@@ -111,6 +118,9 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
         openCart,
         closeCart,
         toggleCart,
+        isZeffyOpen,
+        openZeffy,
+        closeZeffy,
         addItem,
         removeItem,
         updateQuantity,

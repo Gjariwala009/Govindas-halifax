@@ -8,7 +8,7 @@ import { useCart } from '@/context/CartContext';
 import { TEMPLE_INFO } from '@/data/menu';
 
 export default function Navbar() {
-  const { totalCount, toggleCart } = useCart();
+  const { openZeffy } = useCart();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
@@ -17,7 +17,7 @@ export default function Navbar() {
       <div className="bg-[#27080c] px-4 py-1.5 text-xs text-amber-200/90 flex justify-between items-center max-w-7xl mx-auto">
         <div className="flex items-center gap-2">
           <span className="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-          <span>Pick up at <strong>{TEMPLE_INFO.templeName}</strong> during Sunday Feasts & Events</span>
+          <span>Pick up at <strong>{TEMPLE_INFO.templeName}</strong> during Weekend Programs & Events</span>
         </div>
         <a
           href={`tel:${TEMPLE_INFO.phone}`}
@@ -56,12 +56,19 @@ export default function Navbar() {
           </Link>
 
           {/* Desktop Nav Links */}
-          <nav className="hidden md:flex items-center space-x-6 text-sm font-medium">
+          <nav className="hidden md:flex items-center space-x-5 text-sm font-medium">
+            <a
+              href="#order-online"
+              className="text-amber-300 font-semibold hover:text-white transition-colors flex items-center gap-1.5"
+            >
+              <span>Order Online</span>
+              <span className="px-1.5 py-0.5 rounded text-[10px] bg-emerald-600/80 text-white font-bold">0% Fees</span>
+            </a>
             <a
               href="#menu"
               className="text-stone-200 hover:text-amber-300 transition-colors"
             >
-              Menu & Snacks
+              Menu
             </a>
             <a
               href="#about"
@@ -79,24 +86,22 @@ export default function Navbar() {
               href="#pickup"
               className="text-stone-200 hover:text-amber-300 transition-colors"
             >
-              Pickup & Hours
+              Pickup &amp; Hours
             </a>
           </nav>
 
-          {/* Right Actions: Cart & Contact */}
+          {/* Right Actions: Order Online button */}
           <div className="flex items-center gap-3">
             <button
-              onClick={toggleCart}
-              className="relative flex items-center gap-2 bg-[#4d8b31] hover:bg-[#3c7025] text-white px-4 py-2.5 rounded-full font-semibold text-sm transition-all shadow-md active:scale-95"
-              aria-label="View Order Cart"
+              onClick={openZeffy}
+              className="relative flex items-center gap-2 bg-[#4d8b31] hover:bg-[#3c7025] text-white px-4 py-2.5 rounded-full font-semibold text-sm transition-all shadow-md active:scale-95 cursor-pointer"
+              aria-label="Order Online via Zeffy"
             >
-              <ShoppingBag className="w-4 h-4" />
-              <span className="hidden sm:inline">Order Tray</span>
-              {totalCount > 0 && (
-                <span className="bg-amber-400 text-stone-950 font-bold text-xs px-2 py-0.5 rounded-full animate-bounce">
-                  {totalCount}
-                </span>
-              )}
+              <ShoppingBag className="w-4 h-4 text-amber-300" />
+              <span>Order Online</span>
+              <span className="hidden sm:inline px-1.5 py-0.5 rounded text-[10px] bg-emerald-900/60 font-bold text-amber-200">
+                0% Fees
+              </span>
             </button>
 
             {/* Mobile menu button */}
@@ -114,6 +119,13 @@ export default function Navbar() {
       {/* Mobile menu dropdown */}
       {mobileMenuOpen && (
         <div className="md:hidden bg-[#2d0a0f] border-t border-[#571720] px-4 pt-3 pb-5 space-y-3">
+          <a
+            href="#order-online"
+            onClick={() => setMobileMenuOpen(false)}
+            className="block py-2 text-base font-semibold text-amber-300 hover:text-white"
+          >
+            Order Online (Zeffy Store)
+          </a>
           <a
             href="#menu"
             onClick={() => setMobileMenuOpen(false)}

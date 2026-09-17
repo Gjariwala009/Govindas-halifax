@@ -65,13 +65,13 @@ export default function Hero() {
                 href="#menu"
                 className="inline-flex items-center justify-center px-7 py-3.5 rounded-full bg-[#4d8b31] hover:bg-[#3c7025] text-white font-semibold text-sm sm:text-base shadow-lg hover:shadow-emerald-900/30 transition-all active:scale-95"
               >
-                Browse Our Snacks &amp; Meals
+                Browse Menu &amp; Snacks
               </a>
               <a
-                href="#price-list"
-                className="inline-flex items-center justify-center px-6 py-3.5 rounded-full bg-white/10 hover:bg-white/15 border border-white/20 text-white font-medium text-sm sm:text-base transition-all"
+                href="#order-online"
+                className="inline-flex items-center justify-center px-6 py-3.5 rounded-full bg-amber-400 hover:bg-amber-300 text-stone-950 font-bold text-sm sm:text-base shadow-lg transition-all active:scale-95"
               >
-                View Price Sheet ($3 – $9)
+                Order Online (Zeffy Store)
               </a>
             </div>
 

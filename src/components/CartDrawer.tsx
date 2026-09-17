@@ -1,15 +1,17 @@
 'use client';
 
 import React from 'react';
+import Image from 'next/image';
 import { useCart } from '@/context/CartContext';
 import { TEMPLE_INFO } from '@/data/menu';
-import { X, ShoppingBag, Plus, Minus, Trash2, MessageSquare, Phone, MapPin, Sparkles } from 'lucide-react';
+import { X, ShoppingBag, Plus, Minus, Trash2, MessageSquare, Phone, MapPin, Sparkles, ShieldCheck } from 'lucide-react';
 
 export default function CartDrawer() {
   const {
     cart,
     isOpen,
     closeCart,
+    openZeffy,
     updateQuantity,
     removeItem,
     clearCart,
@@ -103,6 +105,17 @@ export default function CartDrawer() {
                       key={entry.item.id}
                       className="flex items-center justify-between gap-3 p-3 rounded-xl bg-[#faf6f0] border border-[#eee4d5]"
                     >
+                      {entry.item.image && (
+                        <div className="relative w-12 h-12 rounded-lg bg-white overflow-hidden border border-stone-200/80 shrink-0 p-1 flex items-center justify-center">
+                          <Image
+                            src={entry.item.image}
+                            alt={entry.item.name}
+                            fill
+                            className="object-contain p-0.5"
+                            sizes="48px"
+                          />
+                        </div>
+                      )}
                       <div className="flex-1 min-w-0">
                         <div className="flex items-center gap-1.5">
                           <h4 className="font-semibold text-stone-900 text-sm truncate">
@@ -164,7 +177,7 @@ export default function CartDrawer() {
                     <span>Pickup at ISKCON Halifax Temple</span>
                   </div>
                   <p className="text-[11px] text-amber-800">
-                    {TEMPLE_INFO.address} (Sundays 4:00 PM – 7:30 PM &amp; Festivals)
+                    {TEMPLE_INFO.address} (Sat 4:00 PM – 6:00 PM, Sun 8:00 AM – 11:00 AM &amp; Festivals)
                   </p>
                 </div>
               </>
@@ -188,28 +201,39 @@ export default function CartDrawer() {
               </div>
 
               {/* Status announcement */}
-              <div className="p-2.5 rounded-lg bg-emerald-50 border border-emerald-200 text-[11px] text-emerald-800 flex items-start gap-1.5">
+              <div className="p-2.5 rounded-lg bg-emerald-50 border border-emerald-200 text-[11px] text-emerald-900 flex items-start gap-1.5">
                 <Sparkles className="w-3.5 h-3.5 text-emerald-600 shrink-0 mt-0.5" />
                 <span>
-                  Online Zeffy payments are currently being setup! You can reserve your tray now via WhatsApp or Phone for temple pickup.
+                  Official Zeffy checkout is active with 0% platform fees! Or reserve via WhatsApp for temple pickup.
                 </span>
               </div>
 
               {/* Action Buttons */}
               <div className="space-y-2">
+                <button
+                  onClick={() => {
+                    closeCart();
+                    openZeffy();
+                  }}
+                  className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-[#3e0e14] hover:bg-[#571720] text-white font-semibold text-sm shadow-md transition-all active:scale-98 cursor-pointer"
+                >
+                  <ShieldCheck className="w-4 h-4 text-emerald-400" />
+                  <span>Pay Online via Zeffy Store (0% Fees)</span>
+                </button>
+
                 <a
                   href={whatsappUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-[#4d8b31] hover:bg-[#3c7025] text-white font-semibold text-sm shadow-md transition-all active:scale-98"
+                  className="w-full flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl bg-[#4d8b31] hover:bg-[#3c7025] text-white font-semibold text-xs sm:text-sm shadow-sm transition-all active:scale-98"
                 >
                   <MessageSquare className="w-4 h-4" />
-                  <span>Reserve via WhatsApp</span>
+                  <span>Reserve via WhatsApp (Pay at Temple)</span>
                 </a>
 
                 <a
                   href={`tel:${TEMPLE_INFO.phone}`}
-                  className="w-full flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl bg-white border border-stone-300 text-stone-800 font-medium text-xs sm:text-sm hover:bg-stone-100 transition-colors"
+                  className="w-full flex items-center justify-center gap-2 py-2 px-4 rounded-xl bg-white border border-stone-300 text-stone-700 font-medium text-xs hover:bg-stone-100 transition-colors"
                 >
                   <Phone className="w-3.5 h-3.5 text-emerald-600" />
                   <span>Call to Reserve: {TEMPLE_INFO.phone}</span>

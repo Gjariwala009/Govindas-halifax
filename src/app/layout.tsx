@@ -4,7 +4,7 @@ import './globals.css';
 import { CartProvider } from '@/context/CartContext';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import CartDrawer from '@/components/CartDrawer';
+import ZeffyCheckoutModal from '@/components/ZeffyCheckoutModal';
 
 const playfair = Playfair_Display({
   subsets: ['latin'],
@@ -42,7 +42,7 @@ export default function RootLayout({
           <Navbar />
           <main className="flex-1">{children}</main>
           <Footer />
-          <CartDrawer />
+          <ZeffyCheckoutModal />
         </CartProvider>
       </body>
     </html>

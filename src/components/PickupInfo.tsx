@@ -63,7 +63,7 @@ export default function PickupInfo() {
               Pick Up at the Temple
             </h3>
             <p className="text-stone-600 text-xs sm:text-sm leading-relaxed">
-              Collect your items every Sunday at the Sunday Feast (4:00 PM – 7:30 PM), during festival programs, or by prior arrangement.
+              Collect your items during temple programs (Saturdays 4:00 PM – 6:00 PM, Sundays 8:00 AM – 11:00 AM), during festival events, or by prior arrangement.
             </p>
           </div>
         </div>
@@ -95,9 +95,18 @@ export default function PickupInfo() {
                 <div className="flex items-start gap-3">
                   <Clock className="w-5 h-5 text-amber-400 shrink-0 mt-0.5" />
                   <div>
-                    <strong className="text-white block">Standard Pickup Window:</strong>
-                    <span>Every Sunday: 4:00 PM – 7:30 PM (During Sunday Feast)</span>
-                    <p className="text-xs text-stone-300 mt-0.5">
+                    <strong className="text-white block">Temple Program &amp; Pickup Hours:</strong>
+                    <div className="mt-1.5 space-y-1 text-xs sm:text-sm">
+                      <div className="flex items-center gap-2">
+                        <span className="inline-block w-2 h-2 rounded-full bg-emerald-400"></span>
+                        <span><strong>Saturdays:</strong> 4:00 PM – 6:00 PM</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <span className="inline-block w-2 h-2 rounded-full bg-amber-400"></span>
+                        <span><strong>Sundays:</strong> 8:00 AM – 11:00 AM</span>
+                      </div>
+                    </div>
+                    <p className="text-xs text-stone-300 mt-1.5">
                       Also open during Janmashtami, Radhastami, Gaura Purnima, and other Vaishnava festivals.
                     </p>
                   </div>
@@ -150,7 +159,7 @@ export default function PickupInfo() {
                 Govinda&apos;s Kitchen is managed by devotees of ISKCON Halifax. 100% of proceeds from these snacks directly support temple worship, prasadam distribution, and community services.
               </p>
               <div className="p-3.5 rounded-xl bg-black/20 border border-white/10 text-xs text-stone-300">
-                💡 <strong>Attending the Sunday Feast?</strong> Simply mention your name at the Govinda&apos;s counter to collect your prepared parcel.
+                💡 <strong>Attending temple programs?</strong> Simply mention your name at the Govinda&apos;s counter to collect your prepared parcel.
               </div>
             </div>
           </div>
