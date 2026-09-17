@@ -1,9 +1,13 @@
+'use client';
+
 import React from 'react';
 import Image from 'next/image';
 import { Leaf, ShieldCheck, Heart, Sparkles, MapPin } from 'lucide-react';
 import { TEMPLE_INFO } from '@/data/menu';
+import { useCart } from '@/context/CartContext';
 
 export default function Hero() {
+  const { openZeffy } = useCart();
   return (
     <section className="relative overflow-hidden bg-gradient-to-b from-[#3e0e14] via-[#4d121a] to-[#2b090e] text-white pt-12 pb-20 lg:pt-16 lg:pb-28">
       {/* Decorative background glow */}
@@ -67,12 +71,12 @@ export default function Hero() {
               >
                 Browse Menu &amp; Snacks
               </a>
-              <a
-                href="#order-online"
-                className="inline-flex items-center justify-center px-6 py-3.5 rounded-full bg-amber-400 hover:bg-amber-300 text-stone-950 font-bold text-sm sm:text-base shadow-lg transition-all active:scale-95"
+              <button
+                onClick={openZeffy}
+                className="inline-flex items-center justify-center px-6 py-3.5 rounded-full bg-amber-400 hover:bg-amber-300 text-stone-950 font-bold text-sm sm:text-base shadow-lg transition-all active:scale-95 cursor-pointer"
               >
                 Order Online (Zeffy Store)
-              </a>
+              </button>
             </div>
 
             <div className="pt-2 text-xs text-amber-200/80 flex items-center justify-center lg:justify-start gap-1.5">

@@ -56,19 +56,12 @@ export default function Navbar() {
           </Link>
 
           {/* Desktop Nav Links */}
-          <nav className="hidden md:flex items-center space-x-5 text-sm font-medium">
-            <a
-              href="#order-online"
-              className="text-amber-300 font-semibold hover:text-white transition-colors flex items-center gap-1.5"
-            >
-              <span>Order Online</span>
-              <span className="px-1.5 py-0.5 rounded text-[10px] bg-emerald-600/80 text-white font-bold">0% Fees</span>
-            </a>
+          <nav className="hidden md:flex items-center space-x-6 text-sm font-medium">
             <a
               href="#menu"
               className="text-stone-200 hover:text-amber-300 transition-colors"
             >
-              Menu
+              Menu &amp; Snacks
             </a>
             <a
               href="#about"
@@ -119,13 +112,15 @@ export default function Navbar() {
       {/* Mobile menu dropdown */}
       {mobileMenuOpen && (
         <div className="md:hidden bg-[#2d0a0f] border-t border-[#571720] px-4 pt-3 pb-5 space-y-3">
-          <a
-            href="#order-online"
-            onClick={() => setMobileMenuOpen(false)}
-            className="block py-2 text-base font-semibold text-amber-300 hover:text-white"
+          <button
+            onClick={() => {
+              setMobileMenuOpen(false);
+              openZeffy();
+            }}
+            className="block w-full text-left py-2 text-base font-semibold text-amber-300 hover:text-white cursor-pointer"
           >
             Order Online (Zeffy Store)
-          </a>
+          </button>
           <a
             href="#menu"
             onClick={() => setMobileMenuOpen(false)}
