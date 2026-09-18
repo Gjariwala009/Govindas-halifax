@@ -23,7 +23,11 @@ export const metadata: Metadata = {
   description:
     "Authentic Indian Sattvik snacks, traditional chikkis, whole-wheat khakhras, and gourmet ready-to-eat meals in Halifax, Nova Scotia. 100% Pure Vegetarian, No Onion & Garlic. Pick up at ISKCON Halifax Temple.",
   icons: {
-    icon: '/images/govindas-logo.jpeg',
+    icon: [
+      { url: '/favicon.png', sizes: '32x32', type: 'image/png' },
+      { url: '/images/browser-tab-icon.png', sizes: '512x512', type: 'image/png' },
+    ],
+    apple: '/apple-touch-icon.png',
   },
 };
 
