@@ -22,44 +22,44 @@ export default function Navbar() {
 
   return (
     <header className="sticky top-0 z-40 transition-all duration-300">
-      {/* High-Impact Warm Saffron Top Bar */}
-      <div className="bg-gradient-to-r from-amber-600 via-orange-600 to-amber-600 text-white font-medium px-4 py-2 text-xs shadow-xs border-b border-orange-700/40">
+      {/* Dev Top Mini Banner */}
+      <div className="bg-[#27080c] text-amber-200/90 px-4 py-2 text-xs border-b border-[#3e0e14]">
         <div className="max-w-7xl mx-auto flex items-center justify-between text-[11px] sm:text-xs">
           <div className="flex items-center gap-2">
             <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-200 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-white"></span>
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-400"></span>
             </span>
             <span>
-              Weekend Temple Pickup: <strong className="font-bold underline decoration-amber-200">Saturdays 4–6 PM</strong> &amp; <strong className="font-bold underline decoration-amber-200">Sundays 8–11 AM</strong> at {TEMPLE_INFO.templeName}
+              Weekend Temple Pickup: <strong className="font-bold text-amber-100">Saturdays 4–6 PM</strong> &amp; <strong className="font-bold text-amber-100">Sundays 8–11 AM</strong> at {TEMPLE_INFO.templeName}
             </span>
           </div>
 
           <div className="flex items-center gap-4">
             <a
               href={`tel:${TEMPLE_INFO.phone}`}
-              className="hidden sm:inline-flex items-center gap-1.5 text-amber-100 hover:text-white transition-colors font-semibold"
+              className="hidden sm:inline-flex items-center gap-1.5 text-emerald-300 hover:text-amber-200 transition-colors font-semibold"
             >
-              <Phone className="w-3 h-3" />
+              <Phone className="w-3 h-3 text-emerald-400" />
               <span>{TEMPLE_INFO.phone}</span>
             </a>
           </div>
         </div>
       </div>
 
-      {/* Main Luxury Royal Maroon & Warm Amber Navigation Bar */}
+      {/* Main Luxury Devotional Maroon Navigation Bar */}
       <div
         className={`w-full transition-all duration-300 ${
           isScrolled
-            ? 'apple-frosted-glass-maroon shadow-[0_10px_35px_rgba(58,14,21,0.3)]'
-            : 'bg-[#380e15] border-b border-amber-500/25 shadow-md'
+            ? 'bg-[#3e0e14]/95 backdrop-blur-md shadow-lg border-b border-[#571720]'
+            : 'bg-[#3e0e14] border-b border-[#571720] shadow-md'
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-20">
             {/* Brand Logo & Wordmark */}
             <Link href="/" className="flex items-center gap-3.5 group">
-              <div className="relative w-12 h-12 rounded-full p-0.5 bg-gradient-to-tr from-amber-400 via-yellow-300 to-amber-500 shadow-md group-hover:scale-105 transition-transform duration-300">
+              <div className="relative w-12 h-12 rounded-full p-0.5 border-2 border-amber-400/80 shadow-md group-hover:scale-105 transition-transform duration-300">
                 <div className="relative w-full h-full rounded-full overflow-hidden bg-white">
                   <Image
                     src="/images/govindas-logo.jpeg"
@@ -75,7 +75,7 @@ export default function Navbar() {
                 <span className="font-serif font-bold text-xl sm:text-2xl text-white tracking-wide group-hover:text-amber-300 transition-colors">
                   Govinda&apos;s Kitchen
                 </span>
-                <span className="text-[10px] uppercase tracking-widest text-amber-300 font-bold flex items-center gap-1">
+                <span className="text-[10px] uppercase tracking-widest text-emerald-300 font-bold flex items-center gap-1">
                   <span>Halifax</span>
                   <span className="text-amber-400">•</span>
                   <span>Serve with Love</span>
@@ -87,38 +87,38 @@ export default function Navbar() {
             <nav className="hidden lg:flex items-center space-x-1 text-sm font-medium">
               <a
                 href="#menu"
-                className="px-4 py-2 rounded-full text-stone-200 hover:text-white hover:bg-white/10 transition-all duration-200"
+                className="px-4 py-2 rounded-full text-stone-200 hover:text-amber-300 hover:bg-white/5 transition-all duration-200"
               >
                 Snacks &amp; Delicacies
               </a>
               <a
                 href="#about"
-                className="px-4 py-2 rounded-full text-stone-200 hover:text-white hover:bg-white/10 transition-all duration-200"
+                className="px-4 py-2 rounded-full text-stone-200 hover:text-amber-300 hover:bg-white/5 transition-all duration-200"
               >
                 The Sattvik Purity
               </a>
               <a
                 href="#price-list"
-                className="px-4 py-2 rounded-full text-stone-200 hover:text-white hover:bg-white/10 transition-all duration-200"
+                className="px-4 py-2 rounded-full text-stone-200 hover:text-amber-300 hover:bg-white/5 transition-all duration-200"
               >
-                Price Sheet ($2.99–$8.99)
+                Price Sheet
               </a>
               <a
                 href="#pickup"
-                className="px-4 py-2 rounded-full text-stone-200 hover:text-white hover:bg-white/10 transition-all duration-200"
+                className="px-4 py-2 rounded-full text-stone-200 hover:text-amber-300 hover:bg-white/5 transition-all duration-200"
               >
                 Temple Pickup
               </a>
             </nav>
 
-            {/* Right Action: Radiant High-Conversion Saffron Button */}
+            {/* Right Action: Dev Tulsi Green Order Button */}
             <div className="flex items-center gap-3">
               <button
                 onClick={openZeffy}
-                className="relative group inline-flex items-center gap-2.5 px-6 py-2.5 rounded-full bg-gradient-to-r from-amber-400 via-amber-500 to-orange-500 hover:from-amber-300 hover:to-amber-400 text-stone-950 font-bold text-xs sm:text-sm shadow-[0_0_22px_rgba(245,158,11,0.45)] hover:shadow-[0_0_30px_rgba(245,158,11,0.7)] hover:brightness-105 active:scale-[0.97] transition-all duration-200 cursor-pointer border border-amber-300/40"
+                className="relative group inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#4d8b31] hover:bg-[#3c7025] text-white font-semibold text-xs sm:text-sm shadow-md hover:shadow-emerald-900/40 active:scale-[0.97] transition-all duration-200 cursor-pointer"
                 aria-label="Order Online via Zeffy"
               >
-                <ShoppingBag className="w-4 h-4 text-stone-950 group-hover:rotate-6 transition-transform" />
+                <ShoppingBag className="w-4 h-4 text-amber-300 group-hover:rotate-6 transition-transform" />
                 <span>Order Online</span>
               </button>
 
@@ -135,10 +135,10 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Mobile Drawer Navigation with Rich Maroon Glass */}
+      {/* Mobile Drawer Navigation with Dev Maroon Style */}
       {mobileMenuOpen && (
-        <div className="lg:hidden bg-[#340b12]/95 backdrop-blur-2xl border-b border-amber-500/30 px-5 pt-4 pb-6 space-y-3 animate-in fade-in slide-in-from-top-4 duration-200 shadow-2xl">
-          <div className="p-3.5 rounded-2xl bg-amber-500/15 border border-amber-400/30 mb-3">
+        <div className="lg:hidden bg-[#2d0a0f] border-b border-[#571720] px-5 pt-4 pb-6 space-y-3 shadow-2xl">
+          <div className="p-3.5 rounded-2xl bg-white/5 border border-white/10 mb-3">
             <p className="text-xs text-amber-200 font-bold flex items-center gap-1.5">
               <Clock className="w-3.5 h-3.5 text-amber-400" />
               <span>Weekend Temple Pickup Available</span>
@@ -151,13 +151,13 @@ export default function Navbar() {
               setMobileMenuOpen(false);
               openZeffy();
             }}
-            className="w-full flex items-center justify-between px-4 py-3 rounded-2xl bg-gradient-to-r from-amber-400 to-amber-500 text-stone-950 font-bold text-sm shadow-md transition-all cursor-pointer"
+            className="w-full flex items-center justify-between px-4 py-3 rounded-2xl bg-[#4d8b31] hover:bg-[#3c7025] text-white font-bold text-sm shadow-md transition-all cursor-pointer"
           >
             <span className="flex items-center gap-2">
-              <ShoppingBag className="w-4 h-4 text-stone-950" />
+              <ShoppingBag className="w-4 h-4 text-amber-300" />
               <span>Order Online (Zeffy Store)</span>
             </span>
-            <ChevronRight className="w-4 h-4 text-stone-950" />
+            <ChevronRight className="w-4 h-4 text-white/80" />
           </button>
 
           <div className="space-y-1 pt-1">
@@ -182,7 +182,7 @@ export default function Navbar() {
               onClick={() => setMobileMenuOpen(false)}
               className="flex items-center justify-between px-3.5 py-2.5 rounded-xl text-stone-200 hover:text-white hover:bg-white/10 text-sm font-medium transition-colors"
             >
-              <span>Retail Price Sheet</span>
+              <span>Price Sheet</span>
               <ChevronRight className="w-3.5 h-3.5 text-amber-400/70" />
             </a>
             <a
@@ -195,14 +195,14 @@ export default function Navbar() {
             </a>
           </div>
 
-          <div className="pt-3 border-t border-white/15 space-y-2 text-xs text-stone-300">
+          <div className="pt-3 border-t border-white/10 space-y-2 text-xs text-stone-300">
             <div className="flex items-center gap-2">
-              <MapPin className="w-3.5 h-3.5 text-amber-400 shrink-0" />
+              <MapPin className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
               <span>{TEMPLE_INFO.address}</span>
             </div>
             <a
               href={`tel:${TEMPLE_INFO.phone}`}
-              className="flex items-center gap-2 text-amber-300 hover:underline font-semibold"
+              className="flex items-center gap-2 text-emerald-300 hover:underline font-semibold"
             >
               <Phone className="w-3.5 h-3.5 shrink-0" />
               <span>{TEMPLE_INFO.phone}</span>

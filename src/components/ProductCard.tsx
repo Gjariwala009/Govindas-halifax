@@ -14,36 +14,36 @@ export default function ProductCard({ item }: ProductCardProps) {
   const { openZeffy } = useCart();
 
   return (
-    <div className="group relative flex flex-col justify-between bg-[#fffdf9] rounded-3xl border-2 border-amber-200/80 hover:border-amber-400 shadow-[0_4px_22px_rgba(245,158,11,0.06)] hover:shadow-[0_20px_45px_rgba(245,158,11,0.18)] hover:-translate-y-1.5 transition-all duration-300 p-5 sm:p-6 overflow-hidden">
+    <div className="group relative flex flex-col justify-between bg-white rounded-2xl border border-stone-200/90 shadow-sm hover:shadow-md hover:border-amber-400/60 transition-all p-5">
       
       {/* Top Badges & Product Showcase */}
       <div>
         {/* Badges bar */}
         <div className="flex items-center justify-between gap-2 mb-3">
-          <span className="text-[10px] uppercase tracking-wider font-extrabold px-3 py-1 rounded-full bg-amber-100/80 text-amber-950 border border-amber-300/80">
+          <span className="text-[10px] uppercase tracking-wider font-semibold px-2.5 py-0.5 rounded-full bg-stone-100 text-stone-600 border border-stone-200">
             {item.category}
           </span>
           {item.badge ? (
-            <span className="inline-flex items-center gap-1 text-[10px] font-black px-2.5 py-1 rounded-full bg-gradient-to-r from-amber-400 to-orange-400 text-stone-950 shadow-xs">
-              <Sparkles className="w-3 h-3 text-stone-950" />
+            <span className="inline-flex items-center gap-1 text-[10px] font-semibold px-2.5 py-0.5 rounded-full bg-amber-100 text-amber-900 border border-amber-300">
+              <Sparkles className="w-3 h-3 text-amber-600" />
               {item.badge}
             </span>
           ) : (
-            <span className="inline-flex items-center gap-1 text-[10px] font-bold text-amber-800">
+            <span className="inline-flex items-center gap-1 text-[10px] font-medium text-stone-500">
               <Star className="w-3 h-3 fill-amber-400 text-amber-500" />
               <span>4.9</span>
             </span>
           )}
         </div>
 
-        {/* Product Studio Showcase Pedestal - Warm Saffron Radiance */}
+        {/* Product Studio Showcase Pedestal */}
         {item.image && (
-          <div className="relative w-full aspect-square mb-4 rounded-2xl product-pedestal-appetizing group-hover:product-pedestal-appetizing-hover border border-amber-200/60 flex items-center justify-center p-4 transition-colors duration-300">
+          <div className="relative w-full aspect-square mb-3.5 rounded-xl bg-stone-50/70 border border-stone-100/80 flex items-center justify-center p-3 overflow-hidden">
             <Image
               src={item.image}
               alt={item.name}
               fill
-              className="object-contain p-3 transition-transform duration-500 ease-out group-hover:scale-110 filter drop-shadow-md"
+              className="object-contain p-2 transition-transform duration-300 group-hover:scale-105"
               sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
             />
           </div>
@@ -51,11 +51,11 @@ export default function ProductCard({ item }: ProductCardProps) {
 
         {/* Product Title & Unit */}
         <div className="mb-2">
-          <h3 className="font-serif font-bold text-xl text-stone-900 group-hover:text-amber-900 transition-colors leading-snug">
+          <h3 className="font-serif font-bold text-lg text-stone-900 group-hover:text-[#3e0e14] transition-colors leading-snug">
             {item.name}
           </h3>
           {item.weightOrUnit && (
-            <span className="inline-block text-xs text-stone-500 font-semibold mt-0.5">
+            <span className="inline-block text-xs text-stone-400 font-medium mt-0.5">
               {item.weightOrUnit}
             </span>
           )}
@@ -67,47 +67,47 @@ export default function ProductCard({ item }: ProductCardProps) {
         </p>
       </div>
 
-      {/* Bottom Attributes, Dietary Chips & High-Converting Order Button */}
+      {/* Bottom Attributes, Dietary Chips & Order Button */}
       <div>
         {/* Dietary micro-chips */}
         <div className="flex flex-wrap gap-1.5 mb-4">
-          <span className="inline-flex items-center text-[10px] font-bold px-2.5 py-0.5 rounded-md bg-emerald-100 text-emerald-900 border border-emerald-300">
+          <span className="inline-flex items-center text-[10px] font-medium px-2 py-0.5 rounded-md bg-emerald-50 text-emerald-800 border border-emerald-200">
             🌿 Sattvik
           </span>
           {item.isEkadashi && (
-            <span className="inline-flex items-center text-[10px] font-bold px-2.5 py-0.5 rounded-md bg-purple-100 text-purple-900 border border-purple-300">
+            <span className="inline-flex items-center text-[10px] font-medium px-2 py-0.5 rounded-md bg-purple-50 text-purple-800 border border-purple-200">
               🕉️ Fasting
             </span>
           )}
           {item.isGlutenFree && (
-            <span className="inline-flex items-center text-[10px] font-bold px-2.5 py-0.5 rounded-md bg-amber-100 text-amber-900 border border-amber-300">
+            <span className="inline-flex items-center text-[10px] font-medium px-2 py-0.5 rounded-md bg-amber-50 text-amber-800 border border-amber-200">
               🌾 Gluten-Free
             </span>
           )}
           {item.isReadyToEat && (
-            <span className="inline-flex items-center gap-1 text-[10px] font-bold px-2.5 py-0.5 rounded-md bg-sky-100 text-sky-900 border border-sky-300">
-              <Clock className="w-2.5 h-2.5 text-sky-700" />
+            <span className="inline-flex items-center gap-1 text-[10px] font-medium px-2 py-0.5 rounded-md bg-sky-50 text-sky-800 border border-sky-200">
+              <Clock className="w-2.5 h-2.5 text-sky-600" />
               Ready Meal
             </span>
           )}
         </div>
 
-        {/* Bottom Price & High-Energy Order CTA */}
-        <div className="pt-3 border-t border-amber-100 flex items-center justify-between gap-2">
+        {/* Bottom Price & Order CTA */}
+        <div className="pt-3 border-t border-stone-100 flex items-center justify-between gap-2">
           <div>
-            <div className="text-[10px] uppercase font-bold text-stone-400 tracking-wider">Price</div>
-            <div className="text-2xl font-black text-stone-900 tracking-tight">
+            <div className="text-[10px] uppercase font-medium text-stone-400">Price</div>
+            <div className="text-xl font-bold text-stone-900 tracking-tight">
               ${item.price.toFixed(2)}{' '}
-              <span className="text-xs font-semibold text-stone-500">CAD</span>
+              <span className="text-xs font-normal text-stone-500">CAD</span>
             </div>
           </div>
 
           <button
             onClick={openZeffy}
-            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-2xl text-xs sm:text-sm font-extrabold transition-all duration-200 active:scale-95 bg-gradient-to-r from-amber-400 via-amber-500 to-orange-400 hover:from-amber-300 hover:to-amber-400 text-stone-950 shadow-md hover:shadow-amber-500/40 cursor-pointer border border-amber-300/80"
+            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all active:scale-95 bg-[#3e0e14] hover:bg-[#571720] text-white shadow-sm cursor-pointer"
             aria-label={`Order ${item.name} on Zeffy`}
           >
-            <ShoppingBag className="w-4 h-4 text-stone-950" />
+            <ShoppingBag className="w-4 h-4 text-amber-300" />
             <span>Order</span>
           </button>
         </div>

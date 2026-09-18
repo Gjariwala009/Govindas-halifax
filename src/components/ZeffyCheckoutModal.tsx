@@ -44,13 +44,13 @@ export default function ZeffyCheckoutModal() {
         aria-hidden="true"
       />
 
-      {/* Modal Card with Apple-grade finish & Rich Maroon Gold Header */}
-      <div className="relative w-full max-w-4xl bg-white rounded-3xl shadow-[0_25px_70px_rgba(0,0,0,0.5)] overflow-hidden flex flex-col max-h-[92vh] border-2 border-amber-300/60 z-10">
+      {/* Modal Card with Dev Maroon & Gold Header */}
+      <div className="relative w-full max-w-4xl bg-white rounded-3xl shadow-2xl overflow-hidden flex flex-col max-h-[92vh] border border-stone-200 z-10">
         
-        {/* Header - Royal Crimson with Glowing Amber Accents */}
-        <div className="bg-gradient-to-r from-[#3c0e15] via-[#56141f] to-[#2e080f] text-white px-5 py-4 sm:px-6 sm:py-5 flex items-center justify-between border-b border-amber-400/30">
+        {/* Header - Dev Deep Maroon */}
+        <div className="bg-[#3e0e14] text-white px-5 py-4 sm:px-6 sm:py-5 flex items-center justify-between border-b border-[#571720]">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-2xl bg-amber-500/20 border border-amber-400/40 flex items-center justify-center text-amber-300 shadow-sm">
+            <div className="w-10 h-10 rounded-2xl bg-white/10 border border-white/15 flex items-center justify-center text-amber-300 shadow-sm">
               <ShieldCheck className="w-5 h-5" />
             </div>
             <div>
@@ -87,11 +87,11 @@ export default function ZeffyCheckoutModal() {
         </div>
 
         {/* Iframe Loading state & Container */}
-        <div className="relative flex-1 w-full min-h-[550px] sm:min-h-[640px] bg-amber-50/20 overflow-hidden">
+        <div className="relative flex-1 w-full min-h-[550px] sm:min-h-[640px] bg-stone-50 overflow-hidden">
           {isLoading && (
-            <div className="absolute inset-0 flex flex-col items-center justify-center bg-amber-50/50 z-10 gap-3">
-              <div className="w-10 h-10 border-3 border-amber-500 border-t-transparent rounded-full animate-spin"></div>
-              <p className="text-xs text-stone-600 font-bold">
+            <div className="absolute inset-0 flex flex-col items-center justify-center bg-stone-50/80 z-10 gap-3">
+              <div className="w-10 h-10 border-3 border-[#3e0e14] border-t-transparent rounded-full animate-spin"></div>
+              <p className="text-xs text-stone-600 font-medium">
                 Loading secure Zeffy checkout...
               </p>
             </div>
@@ -107,7 +107,7 @@ export default function ZeffyCheckoutModal() {
         </div>
 
         {/* Footer Note */}
-        <div className="px-6 py-3 bg-amber-50/60 border-t border-amber-200 flex flex-col sm:flex-row items-center justify-between text-[11px] text-stone-600 gap-1.5 font-medium">
+        <div className="px-6 py-3 bg-stone-50 border-t border-stone-200 flex flex-col sm:flex-row items-center justify-between text-[11px] text-stone-600 gap-1.5 font-medium">
           <div className="flex items-center gap-2">
             <span className="w-2.5 h-2.5 rounded-full bg-emerald-500"></span>
             <span>100% of your payment directly supports ISKCON Halifax worship &amp; prasadam services.</span>
@@ -116,7 +116,7 @@ export default function ZeffyCheckoutModal() {
             href={TEMPLE_INFO.zeffyUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-amber-800 hover:text-amber-950 hover:underline font-bold inline-flex items-center gap-1"
+            className="text-[#3e0e14] hover:text-[#571720] hover:underline font-semibold inline-flex items-center gap-1"
           >
             <span>Having trouble? Open directly on Zeffy</span>
             <ExternalLink className="w-3 h-3" />
