@@ -25,44 +25,44 @@ export default function PriceListSection() {
 
               <p className="text-stone-600 text-sm sm:text-base leading-relaxed">
                 Clear, transparent pricing in Canadian Dollars (CAD) for all 20 of our packaged Sattvik food items.
-                From \$3 crispy Khakhras to \$9 Ayurvedic Gulkand, every purchase directly supports the mission and kitchen services of ISKCON Halifax.
+                From $2.99 crispy Khakhras to $8.99 Ayurvedic Gulkand, every purchase directly supports the mission and kitchen services of ISKCON Halifax.
               </p>
 
               {/* Price bracket grid */}
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-2">
                 <div className="p-3.5 rounded-xl bg-stone-50 border border-stone-200">
                   <div className="text-xs text-stone-500 font-medium">Whole-Wheat Crisps</div>
-                  <div className="text-xl font-bold text-stone-900 mt-1">$3.00</div>
+                  <div className="text-xl font-bold text-stone-900 mt-1">$2.99</div>
                   <div className="text-[11px] text-stone-400">Khakhra Jeera &amp; Methi</div>
                 </div>
 
                 <div className="p-3.5 rounded-xl bg-stone-50 border border-stone-200">
                   <div className="text-xs text-stone-500 font-medium">Chikkis &amp; Chips</div>
-                  <div className="text-xl font-bold text-stone-900 mt-1">$4.00</div>
-                  <div className="text-[11px] text-stone-400">Peanut, Rajgira, Til, Banana</div>
+                  <div className="text-xl font-bold text-stone-900 mt-1">$3.99</div>
+                  <div className="text-[11px] text-stone-400">Peanut, Rajgira, Til, Banana Chips</div>
                 </div>
 
                 <div className="p-3.5 rounded-xl bg-stone-50 border border-stone-200">
                   <div className="text-xs text-stone-500 font-medium">Bhel &amp; Street Mix</div>
-                  <div className="text-xl font-bold text-stone-900 mt-1">$5.00</div>
+                  <div className="text-xl font-bold text-stone-900 mt-1">$4.99</div>
                   <div className="text-[11px] text-stone-400">Authentic Bombay Bhel</div>
                 </div>
 
                 <div className="p-3.5 rounded-xl bg-stone-50 border border-stone-200">
-                  <div className="text-xs text-stone-500 font-medium">Curries &amp; Halwa</div>
-                  <div className="text-xl font-bold text-stone-900 mt-1">$6.00</div>
-                  <div className="text-[11px] text-stone-400">Ready Meals, Farali, Makhana</div>
+                  <div className="text-xs text-stone-500 font-medium">Curries, Halwa &amp; Snacks</div>
+                  <div className="text-xl font-bold text-stone-900 mt-1">$5.99</div>
+                  <div className="text-[11px] text-stone-400">Meals, Halwa, Makhana, Farali, Beetroot</div>
                 </div>
 
                 <div className="p-3.5 rounded-xl bg-stone-50 border border-stone-200">
                   <div className="text-xs text-stone-500 font-medium">Glass Jar Pickles</div>
-                  <div className="text-xl font-bold text-stone-900 mt-1">$7.00</div>
+                  <div className="text-xl font-bold text-stone-900 mt-1">$6.99</div>
                   <div className="text-[11px] text-stone-400">Mango &amp; Lemon Pickles</div>
                 </div>
 
                 <div className="p-3.5 rounded-xl bg-amber-50 border border-amber-200">
                   <div className="text-xs text-amber-800 font-medium">Ayurvedic Gulkand</div>
-                  <div className="text-xl font-bold text-amber-900 mt-1">$9.00</div>
+                  <div className="text-xl font-bold text-amber-900 mt-1">$8.99</div>
                   <div className="text-[11px] text-amber-700">Pure Rose Petal Preserve</div>
                 </div>
               </div>
@@ -76,7 +76,7 @@ export default function PriceListSection() {
                   <span>View Full Printable Flyer</span>
                 </button>
                 <a
-                  href="/images/retail-price-list.jpeg"
+                  href="/images/retail-price-list-v2.jpeg"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl border border-stone-300 hover:bg-stone-50 text-stone-700 text-xs sm:text-sm font-medium transition-all"
@@ -95,7 +95,7 @@ export default function PriceListSection() {
               >
                 <div className="relative aspect-[3/4] w-full">
                   <Image
-                    src="/images/retail-price-list.jpeg"
+                    src="/images/retail-price-list-v2.jpeg"
                     alt="Govinda's Satvik Foods Retail Price List Flyer"
                     fill
                     sizes="(max-width: 768px) 100vw, 400px"
@@ -136,7 +136,7 @@ export default function PriceListSection() {
             </div>
             <div className="relative w-full h-[75vh] bg-stone-50">
               <Image
-                src="/images/retail-price-list.jpeg"
+                src="/images/retail-price-list-v2.jpeg"
                 alt="Govinda's Satvik Foods Retail Price List Full"
                 fill
                 className="object-contain p-3"

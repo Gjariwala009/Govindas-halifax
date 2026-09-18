@@ -93,7 +93,7 @@ export const MENU_ITEMS: MenuItem[] = [
   },
   {
     id: 'banana-chips-yellow',
-    image: '/images/products/banana-chips-yellow.png',
+    image: '/images/products/banana-chips-yellow-v2.png',
     name: 'Banana Chips (Yellow)',
     category: 'Snacks',
     price: 3.99,
@@ -103,7 +103,7 @@ export const MENU_ITEMS: MenuItem[] = [
   },
   {
     id: 'banana-chips-pepper',
-    image: '/images/products/banana-chips-pepper.png',
+    image: '/images/products/banana-chips-pepper-v2.png',
     name: 'Banana Chips (Pepper)',
     category: 'Snacks',
     price: 3.99,
