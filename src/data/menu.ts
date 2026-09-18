@@ -123,7 +123,7 @@ export const MENU_ITEMS: MenuItem[] = [
   },
   {
     id: 'khakhra-jeera',
-    image: '/images/products/khakhra-jeera.png',
+    image: '/images/products/khakhra-jeera-v2.jpeg',
     name: 'Khakhra Jeera',
     category: 'Khakhra',
     price: 2.99,
@@ -162,7 +162,7 @@ export const MENU_ITEMS: MenuItem[] = [
   },
   {
     id: 'lemon-pickle',
-    image: '/images/products/lemon-pickle.png',
+    image: '/images/products/lemon-pickle-v2.jpeg',
     name: 'Lemon Pickle',
     category: 'Pickles',
     price: 6.99,
