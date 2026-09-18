@@ -39,17 +39,18 @@ export default function ZeffyCheckoutModal() {
     <div className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 md:p-6 animate-in fade-in duration-200">
       {/* Backdrop */}
       <div
-        className="fixed inset-0 bg-black/70 backdrop-blur-sm transition-opacity"
+        className="fixed inset-0 bg-stone-950/80 backdrop-blur-md transition-opacity"
         onClick={closeZeffy}
         aria-hidden="true"
       />
 
-      {/* Modal Card */}
-      <div className="relative w-full max-w-4xl bg-white rounded-3xl shadow-2xl overflow-hidden flex flex-col max-h-[92vh] border border-stone-200 z-10">
-        {/* Header */}
-        <div className="bg-[#3e0e14] text-white px-5 py-4 sm:px-6 sm:py-5 flex items-center justify-between border-b border-[#571720]">
+      {/* Modal Card with Apple-grade finish & Rich Maroon Gold Header */}
+      <div className="relative w-full max-w-4xl bg-white rounded-3xl shadow-[0_25px_70px_rgba(0,0,0,0.5)] overflow-hidden flex flex-col max-h-[92vh] border-2 border-amber-300/60 z-10">
+        
+        {/* Header - Royal Crimson with Glowing Amber Accents */}
+        <div className="bg-gradient-to-r from-[#3c0e15] via-[#56141f] to-[#2e080f] text-white px-5 py-4 sm:px-6 sm:py-5 flex items-center justify-between border-b border-amber-400/30">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-full bg-emerald-500/20 border border-emerald-400/40 flex items-center justify-center text-emerald-300">
+            <div className="w-10 h-10 rounded-2xl bg-amber-500/20 border border-amber-400/40 flex items-center justify-center text-amber-300 shadow-sm">
               <ShieldCheck className="w-5 h-5" />
             </div>
             <div>
@@ -57,10 +58,6 @@ export default function ZeffyCheckoutModal() {
                 <h3 className="font-serif font-bold text-lg sm:text-xl text-white">
                   Govinda&apos;s Online Store
                 </h3>
-                <span className="hidden sm:inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-emerald-900/60 border border-emerald-500/40 text-[11px] text-emerald-300 font-semibold">
-                  <Sparkles className="w-3 h-3 text-emerald-400" />
-                  0% Fee Nonprofit Checkout
-                </span>
               </div>
               <p className="text-xs text-amber-200/90 font-light">
                 Official ISKCON Halifax Store powered by Zeffy
@@ -73,7 +70,7 @@ export default function ZeffyCheckoutModal() {
               href={TEMPLE_INFO.zeffyUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2 rounded-xl text-stone-300 hover:text-white hover:bg-white/10 transition-colors hidden sm:flex items-center gap-1.5 text-xs font-medium"
+              className="p-2 rounded-xl text-amber-200 hover:text-white hover:bg-white/10 transition-colors hidden sm:flex items-center gap-1.5 text-xs font-semibold"
               title="Open full screen in a new window"
             >
               <ExternalLink className="w-4 h-4" />
@@ -81,7 +78,7 @@ export default function ZeffyCheckoutModal() {
             </a>
             <button
               onClick={closeZeffy}
-              className="p-2 rounded-xl text-stone-300 hover:text-white hover:bg-white/10 transition-colors cursor-pointer"
+              className="p-2 rounded-xl text-amber-200 hover:text-white hover:bg-white/10 transition-colors cursor-pointer"
               aria-label="Close checkout"
             >
               <X className="w-5 h-5" />
@@ -90,12 +87,12 @@ export default function ZeffyCheckoutModal() {
         </div>
 
         {/* Iframe Loading state & Container */}
-        <div className="relative flex-1 w-full min-h-[550px] sm:min-h-[640px] bg-stone-50 overflow-hidden">
+        <div className="relative flex-1 w-full min-h-[550px] sm:min-h-[640px] bg-amber-50/20 overflow-hidden">
           {isLoading && (
-            <div className="absolute inset-0 flex flex-col items-center justify-center bg-stone-50 z-10 gap-3">
-              <div className="w-10 h-10 border-3 border-emerald-600 border-t-transparent rounded-full animate-spin"></div>
-              <p className="text-xs text-stone-500 font-medium">
-                Loading secure Zeffy store...
+            <div className="absolute inset-0 flex flex-col items-center justify-center bg-amber-50/50 z-10 gap-3">
+              <div className="w-10 h-10 border-3 border-amber-500 border-t-transparent rounded-full animate-spin"></div>
+              <p className="text-xs text-stone-600 font-bold">
+                Loading secure Zeffy checkout...
               </p>
             </div>
           )}
@@ -110,16 +107,16 @@ export default function ZeffyCheckoutModal() {
         </div>
 
         {/* Footer Note */}
-        <div className="px-5 py-2.5 bg-stone-100 border-t border-stone-200 flex flex-col sm:flex-row items-center justify-between text-[11px] text-stone-500 gap-1">
-          <div className="flex items-center gap-1.5">
-            <span className="w-2 h-2 rounded-full bg-emerald-500"></span>
+        <div className="px-6 py-3 bg-amber-50/60 border-t border-amber-200 flex flex-col sm:flex-row items-center justify-between text-[11px] text-stone-600 gap-1.5 font-medium">
+          <div className="flex items-center gap-2">
+            <span className="w-2.5 h-2.5 rounded-full bg-emerald-500"></span>
             <span>100% of your payment directly supports ISKCON Halifax worship &amp; prasadam services.</span>
           </div>
           <a
             href={TEMPLE_INFO.zeffyUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-emerald-700 hover:underline font-medium inline-flex items-center gap-1"
+            className="text-amber-800 hover:text-amber-950 hover:underline font-bold inline-flex items-center gap-1"
           >
             <span>Having trouble? Open directly on Zeffy</span>
             <ExternalLink className="w-3 h-3" />

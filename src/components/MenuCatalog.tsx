@@ -3,7 +3,7 @@
 import React, { useState, useMemo } from 'react';
 import { MENU_ITEMS, CATEGORIES, Category } from '@/data/menu';
 import ProductCard from './ProductCard';
-import { Search, Sparkles, X, SlidersHorizontal } from 'lucide-react';
+import { Search, Sparkles, X, SlidersHorizontal, ArrowUpDown, Flame } from 'lucide-react';
 
 export default function MenuCatalog() {
   const [selectedCategory, setSelectedCategory] = useState<Category>('All');
@@ -11,10 +11,11 @@ export default function MenuCatalog() {
   const [onlyEkadashi, setOnlyEkadashi] = useState(false);
   const [onlyGlutenFree, setOnlyGlutenFree] = useState(false);
   const [onlyReadyToEat, setOnlyReadyToEat] = useState(false);
+  const [sortBy, setSortBy] = useState<'featured' | 'price-low' | 'price-high'>('featured');
 
-  // Filter items
+  // Filter & sort items
   const filteredItems = useMemo(() => {
-    return MENU_ITEMS.filter((item) => {
+    let result = MENU_ITEMS.filter((item) => {
       // Category filter
       if (selectedCategory !== 'All' && item.category !== selectedCategory) {
         return false;
@@ -42,7 +43,15 @@ export default function MenuCatalog() {
       }
       return true;
     });
-  }, [selectedCategory, searchQuery, onlyEkadashi, onlyGlutenFree, onlyReadyToEat]);
+
+    if (sortBy === 'price-low') {
+      result = [...result].sort((a, b) => a.price - b.price);
+    } else if (sortBy === 'price-high') {
+      result = [...result].sort((a, b) => b.price - a.price);
+    }
+
+    return result;
+  }, [selectedCategory, searchQuery, onlyEkadashi, onlyGlutenFree, onlyReadyToEat, sortBy]);
 
   const clearFilters = () => {
     setSelectedCategory('All');
@@ -50,6 +59,7 @@ export default function MenuCatalog() {
     setOnlyEkadashi(false);
     setOnlyGlutenFree(false);
     setOnlyReadyToEat(false);
+    setSortBy('featured');
   };
 
   const hasActiveFilters =
@@ -57,43 +67,45 @@ export default function MenuCatalog() {
     searchQuery !== '' ||
     onlyEkadashi ||
     onlyGlutenFree ||
-    onlyReadyToEat;
+    onlyReadyToEat ||
+    sortBy !== 'featured';
 
   return (
-    <section id="menu" className="py-16 sm:py-24 bg-[#faf6f0]">
+    <section id="menu" className="py-20 sm:py-28 bg-[#fcf8ef] border-t border-amber-200/70">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-12">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-100 text-amber-900 text-xs font-semibold uppercase tracking-wider mb-3">
-            <Sparkles className="w-3 h-3 text-amber-600" />
-            <span>Govinda&apos;s Satvik Foods</span>
+        <div className="text-center max-w-3xl mx-auto mb-14">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-500/15 text-amber-950 text-xs font-black uppercase tracking-wider mb-4 border border-amber-400/50 shadow-xs">
+            <Sparkles className="w-3.5 h-3.5 text-amber-600" />
+            <span>The Complete Collection • 20 Delicacies</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-serif font-bold text-stone-900 tracking-tight">
-            Our Fresh Snacks &amp; Delicacies
+          <h2 className="text-3xl sm:text-5xl font-serif font-bold text-stone-900 tracking-tight leading-tight">
+            Handcrafted Sattvik Delicacies
           </h2>
-          <p className="mt-3 text-stone-600 text-sm sm:text-base leading-relaxed">
-            All 20 packaged items are 100% Sattvik, vegetarian, free of onion &amp; garlic, and packed with care.
-            Explore authentic flavors for daily snacking, fasting days, and festival feasts.
+          <p className="mt-4 text-stone-700 text-base sm:text-lg leading-relaxed font-normal">
+            All 20 authentic packaged items are 100% pure vegetarian, prepared without onion or garlic,
+            and offered with devotion. Discover traditional Indian snacks, fasting crunchies, and gourmet meals.
           </p>
         </div>
 
-        {/* Search & Filter Controls */}
-        <div className="bg-white rounded-2xl p-4 sm:p-6 shadow-sm border border-stone-200/90 mb-8 space-y-4">
-          <div className="flex flex-col sm:flex-row gap-3 items-stretch">
+        {/* macOS Spotlight-style Search & Control Center with Warm Amber Theme */}
+        <div className="bg-white rounded-3xl p-5 sm:p-7 shadow-[0_6px_30px_rgba(245,158,11,0.08)] border-2 border-amber-200/80 mb-10 space-y-5">
+          <div className="flex flex-col lg:flex-row gap-3.5 items-stretch">
             {/* Search Input */}
             <div className="relative flex-1">
-              <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-stone-400" />
+              <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-amber-600" />
               <input
                 type="text"
-                placeholder="Search by snack name, flavor, or dish (e.g., Bhel, Gulkand, Chikki, Khakhra, Halwa)..."
+                placeholder="Search delicacies (e.g. Banana Chips, Bombay Bhel, Gulkand, Khakhra, Halwa)..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full pl-10 pr-10 py-2.5 rounded-xl border border-stone-200 text-sm focus:outline-none focus:ring-2 focus:ring-[#3e0e14] focus:border-transparent bg-stone-50/50"
+                className="w-full pl-12 pr-10 py-3.5 rounded-2xl border-2 border-amber-200 text-sm focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent bg-amber-50/30 hover:bg-amber-50/50 transition-all placeholder:text-stone-400 font-medium"
               />
               {searchQuery && (
                 <button
                   onClick={() => setSearchQuery('')}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-stone-400 hover:text-stone-600 p-1 cursor-pointer"
+                  className="absolute right-3.5 top-1/2 -translate-y-1/2 text-stone-400 hover:text-stone-600 p-1 cursor-pointer"
                   aria-label="Clear search"
                 >
                   <X className="w-4 h-4" />
@@ -101,14 +113,14 @@ export default function MenuCatalog() {
               )}
             </div>
 
-            {/* Quick Dietary Toggles */}
+            {/* Quick Dietary Toggles & Sort */}
             <div className="flex flex-wrap items-center gap-2">
               <button
                 onClick={() => setOnlyEkadashi(!onlyEkadashi)}
-                className={`px-3 py-2 rounded-xl text-xs font-semibold transition-all border cursor-pointer ${
+                className={`px-4 py-2.5 rounded-2xl text-xs font-bold transition-all border-2 cursor-pointer active:scale-95 ${
                   onlyEkadashi
                     ? 'bg-purple-700 text-white border-purple-700 shadow-sm'
-                    : 'bg-stone-50 text-stone-700 border-stone-200 hover:bg-stone-100'
+                    : 'bg-white text-purple-900 border-purple-200 hover:bg-purple-50'
                 }`}
               >
                 🕉️ Ekadashi Fasting ({MENU_ITEMS.filter((i) => i.isEkadashi).length})
@@ -116,32 +128,46 @@ export default function MenuCatalog() {
 
               <button
                 onClick={() => setOnlyGlutenFree(!onlyGlutenFree)}
-                className={`px-3 py-2 rounded-xl text-xs font-semibold transition-all border cursor-pointer ${
+                className={`px-4 py-2.5 rounded-2xl text-xs font-bold transition-all border-2 cursor-pointer active:scale-95 ${
                   onlyGlutenFree
                     ? 'bg-amber-600 text-white border-amber-600 shadow-sm'
-                    : 'bg-stone-50 text-stone-700 border-stone-200 hover:bg-stone-100'
+                    : 'bg-white text-amber-900 border-amber-200 hover:bg-amber-50'
                 }`}
               >
-                Gluten-Free ({MENU_ITEMS.filter((i) => i.isGlutenFree).length})
+                🌾 Gluten-Free ({MENU_ITEMS.filter((i) => i.isGlutenFree).length})
               </button>
 
               <button
                 onClick={() => setOnlyReadyToEat(!onlyReadyToEat)}
-                className={`px-3 py-2 rounded-xl text-xs font-semibold transition-all border cursor-pointer ${
+                className={`px-4 py-2.5 rounded-2xl text-xs font-bold transition-all border-2 cursor-pointer active:scale-95 ${
                   onlyReadyToEat
                     ? 'bg-sky-700 text-white border-sky-700 shadow-sm'
-                    : 'bg-stone-50 text-stone-700 border-stone-200 hover:bg-stone-100'
+                    : 'bg-white text-sky-900 border-sky-200 hover:bg-sky-50'
                 }`}
               >
-                Ready Meals ({MENU_ITEMS.filter((i) => i.isReadyToEat).length})
+                ⚡ Ready Meals ({MENU_ITEMS.filter((i) => i.isReadyToEat).length})
               </button>
+
+              {/* Price Sort Dropdown */}
+              <div className="relative">
+                <select
+                  value={sortBy}
+                  onChange={(e) => setSortBy(e.target.value as any)}
+                  className="appearance-none bg-white border-2 border-amber-200 text-stone-800 text-xs font-bold rounded-2xl px-4 py-2.5 pr-8 hover:bg-amber-50 transition-all cursor-pointer focus:outline-none focus:ring-2 focus:ring-amber-500"
+                >
+                  <option value="featured">Sort: Featured</option>
+                  <option value="price-low">Price: Low to High</option>
+                  <option value="price-high">Price: High to Low</option>
+                </select>
+                <ArrowUpDown className="w-3.5 h-3.5 text-amber-600 absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none" />
+              </div>
             </div>
           </div>
 
-          {/* Category Pills with Item Counts */}
-          <div className="pt-2 border-t border-stone-100 flex items-center gap-2 overflow-x-auto pb-1 scrollbar-none">
-            <span className="text-xs font-semibold text-stone-400 uppercase tracking-wider shrink-0 hidden sm:inline flex items-center gap-1">
-              <SlidersHorizontal className="w-3.5 h-3.5" />
+          {/* Apple-style Sliding Category Pill Bar with Vibrant Saffron Colors */}
+          <div className="pt-2 border-t border-amber-100 flex items-center gap-2 overflow-x-auto pb-1 scrollbar-none">
+            <span className="text-xs font-bold text-amber-900 uppercase tracking-wider shrink-0 hidden sm:flex items-center gap-1.5 mr-1">
+              <SlidersHorizontal className="w-3.5 h-3.5 text-amber-600" />
               <span>Category:</span>
             </span>
             {CATEGORIES.map((cat) => {
@@ -154,18 +180,18 @@ export default function MenuCatalog() {
                 <button
                   key={cat}
                   onClick={() => setSelectedCategory(cat)}
-                  className={`inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-medium whitespace-nowrap transition-all cursor-pointer ${
+                  className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-bold whitespace-nowrap transition-all duration-200 cursor-pointer ${
                     isSelected
-                      ? 'bg-[#3e0e14] text-white shadow-sm font-semibold'
-                      : 'bg-stone-100 text-stone-700 hover:bg-stone-200'
+                      ? 'bg-gradient-to-r from-amber-400 via-amber-500 to-orange-500 text-stone-950 shadow-md ring-2 ring-amber-300'
+                      : 'bg-white text-stone-700 border border-amber-200 hover:border-amber-400 hover:bg-amber-50'
                   }`}
                 >
                   <span>{cat}</span>
                   <span
-                    className={`text-[10px] px-1.5 py-0.2 rounded-full ${
+                    className={`text-[10px] px-2 py-0.5 rounded-full font-black ${
                       isSelected
-                        ? 'bg-amber-400 text-stone-950 font-bold'
-                        : 'bg-stone-200 text-stone-600 font-medium'
+                        ? 'bg-stone-950 text-amber-300'
+                        : 'bg-amber-100 text-amber-900'
                     }`}
                   >
                     {count}
@@ -176,16 +202,16 @@ export default function MenuCatalog() {
           </div>
         </div>
 
-        {/* Status Bar / Active filters notice */}
-        <div className="flex items-center justify-between text-xs text-stone-500 mb-6 px-1">
+        {/* Live Filter Counter & Reset Action */}
+        <div className="flex items-center justify-between text-xs text-stone-600 mb-8 px-2">
           <div>
-            Showing <strong className="text-stone-800">{filteredItems.length}</strong> of {MENU_ITEMS.length} items
+            Showing <strong className="text-stone-950 font-black text-sm">{filteredItems.length}</strong> of {MENU_ITEMS.length} delicacies
             {hasActiveFilters && ' (filtered)'}
           </div>
           {hasActiveFilters && (
             <button
               onClick={clearFilters}
-              className="text-[#3e0e14] font-semibold hover:underline flex items-center gap-1 cursor-pointer"
+              className="text-amber-700 font-bold hover:text-amber-900 flex items-center gap-1 cursor-pointer transition-colors"
             >
               <X className="w-3.5 h-3.5" />
               Reset all filters
@@ -195,23 +221,23 @@ export default function MenuCatalog() {
 
         {/* Products Grid */}
         {filteredItems.length > 0 ? (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 sm:gap-7">
             {filteredItems.map((item) => (
               <ProductCard key={item.id} item={item} />
             ))}
           </div>
         ) : (
-          <div className="text-center py-16 bg-white rounded-2xl border border-stone-200/90 p-8">
-            <div className="text-4xl mb-3">🔍</div>
-            <h3 className="font-serif font-bold text-lg text-stone-900 mb-1">
-              No matching snacks found
+          <div className="text-center py-20 bg-white rounded-3xl border-2 border-amber-200 p-8 shadow-sm">
+            <div className="text-5xl mb-4">🔍</div>
+            <h3 className="font-serif font-bold text-2xl text-stone-900 mb-2">
+              No matching delicacies found
             </h3>
-            <p className="text-stone-500 text-sm mb-4">
-              We couldn&apos;t find any delicacies matching &ldquo;{searchQuery}&rdquo;.
+            <p className="text-stone-600 text-sm mb-5 max-w-md mx-auto">
+              We couldn&apos;t find any items matching &ldquo;{searchQuery}&rdquo;. Try adjusting your keywords or clearing the active filters.
             </p>
             <button
               onClick={clearFilters}
-              className="px-4 py-2 rounded-xl bg-[#3e0e14] text-white text-xs font-semibold hover:bg-[#571720] transition-colors cursor-pointer"
+              className="px-6 py-3 rounded-full bg-gradient-to-r from-amber-400 to-orange-400 text-stone-950 font-extrabold text-sm hover:from-amber-300 hover:to-orange-300 transition-all cursor-pointer shadow-md"
             >
               Show all {MENU_ITEMS.length} delicacies
             </button>

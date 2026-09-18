@@ -2,88 +2,117 @@
 
 @theme {
   --font-serif: var(--font-playfair), Georgia, serif;
-  --font-sans: var(--font-sans), system-ui, sans-serif;
+  --font-sans: var(--font-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 
 @layer base {
   :root {
-    --brand-maroon: #3e0e14;
-    --brand-maroon-dark: #27080c;
-    --brand-maroon-light: #571720;
-    --brand-green: #4d8b31;
-    --brand-green-dark: #3b6d25;
-    --brand-saffron: #e69b22;
-    --brand-saffron-light: #fdf5e8;
-    --bg-cream: #faf6f0;
-    --bg-cream-card: #ffffff;
-    --border-warm: #eee4d5;
-    --text-primary: #231915;
-    --text-secondary: #655850;
+    --brand-royal-maroon: #4a1219;
+    --brand-royal-maroon-dark: #32090f;
+    --brand-royal-maroon-light: #6e1c26;
+    --brand-saffron: #f59e0b;
+    --brand-saffron-deep: #d97706;
+    --brand-amber-warm: #ea580c;
+    --brand-emerald: #15803d;
+    --brand-emerald-light: #22c55e;
+    --bg-warm-ghee: #fdf8ef;
+    --bg-warm-cream: #faf2e1;
+    --bg-warm-sand: #f5e7ce;
+    --border-warm-amber: #fed7aa;
+    --text-rich: #1c1917;
+    --text-warm-stone: #44403c;
   }
 
   html {
     scroll-behavior: smooth;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   body {
-    background-color: var(--bg-cream);
-    color: var(--text-primary);
+    background-color: var(--bg-warm-ghee);
+    color: var(--text-rich);
     font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  ::selection {
+    background-color: #fde047;
+    color: #451a03;
   }
 }
 
-/* Custom utility classes */
-.bg-maroon-900 {
-  background-color: #27080c;
-}
-.bg-maroon-800 {
-  background-color: #3e0e14;
-}
-.bg-maroon-700 {
-  background-color: #571720;
-}
-.text-maroon-800 {
-  color: #3e0e14;
-}
-.text-maroon-900 {
-  color: #27080c;
-}
-.border-maroon-800 {
-  border-color: #3e0e14;
+/* Vibrant Culinary Gradients & Rich Atmospheric Glows */
+.bg-warm-canvas {
+  background: radial-gradient(circle at 50% 0%, #fffbf2 0%, #fdf6e7 50%, #f7ecd3 100%);
 }
 
-.bg-leaf-600 {
-  background-color: #4d8b31;
-}
-.bg-leaf-700 {
-  background-color: #3b6d25;
-}
-.text-leaf-600 {
-  color: #4d8b31;
-}
-.text-leaf-700 {
-  color: #3b6d25;
-}
-.border-leaf-600 {
-  border-color: #4d8b31;
+.bg-hero-royal {
+  background: linear-gradient(135deg, #3d0c13 0%, #57151e 45%, #2c070d 100%);
 }
 
-.bg-saffron-500 {
-  background-color: #e69b22;
-}
-.bg-saffron-50 {
-  background-color: #fef8ee;
-}
-.text-saffron-600 {
-  color: #c97e0f;
-}
-.border-saffron-300 {
-  border-color: #fbd38d;
+.apple-frosted-glass-warm {
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(254, 215, 170, 0.6);
 }
 
-.bg-cream {
-  background-color: #faf6f0;
+.apple-frosted-glass-maroon {
+  background: rgba(58, 14, 21, 0.92);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(245, 158, 11, 0.2);
 }
-.border-warm {
-  border-color: #eee4d5;
+
+/* Product Pedestal with Mouth-Watering Warm Saffron Aura */
+.product-pedestal-appetizing {
+  background: radial-gradient(circle at 50% 50%, rgba(245, 158, 11, 0.14) 0%, rgba(254, 243, 199, 0.5) 55%, #ffffff 100%);
+}
+
+.product-pedestal-appetizing-hover {
+  background: radial-gradient(circle at 50% 50%, rgba(245, 158, 11, 0.22) 0%, rgba(254, 215, 170, 0.55) 60%, #ffffff 100%);
+}
+
+/* Floating Animations */
+@keyframes warm-float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+.animate-warm-float {
+  animation: warm-float 5s ease-in-out infinite;
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(245, 158, 11, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 28px rgba(245, 158, 11, 0.7);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 3s infinite ease-in-out;
+}
+
+/* Custom Warm Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #faf2e1;
+}
+::-webkit-scrollbar-thumb {
+  background: #d4a373;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #bc6c25;
 }
