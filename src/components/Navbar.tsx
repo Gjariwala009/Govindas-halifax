@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { ShoppingBag, Menu, X, Phone, MapPin, Sparkles, ChevronRight, Clock } from 'lucide-react';
+import { ShoppingBag, Menu, X, Phone, MapPin, ChevronRight, Clock } from 'lucide-react';
 import { useCart } from '@/context/CartContext';
 import { TEMPLE_INFO } from '@/data/menu';
 
@@ -26,17 +26,14 @@ export default function Navbar() {
 
   return (
     <header className="sticky top-0 z-40 transition-all duration-300">
-      {/* Dev Top Mini Banner */}
+      {/* Dev Top Mini Banner - Cleaned of repetitive slogans */}
       <div className="bg-[#27080c] text-stone-300 text-xs py-2 px-4 border-b border-[#571720]">
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-1.5 text-center sm:text-left">
           <div className="flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-            <span>Weekend Pickup at ISKCON Halifax Temple: <strong>Saturdays 4–6 PM &amp; Sundays 8–11 AM</strong></span>
+            <span>Pickup at ISKCON Halifax Temple: <strong>Saturdays 4–6 PM &amp; Sundays 8–11 AM</strong></span>
           </div>
           <div className="flex items-center gap-4 text-[11px]">
-            <span className="hidden md:inline text-amber-300/80 font-medium">
-              100% Sattvik • Non-Allium (No Onion &amp; Garlic)
-            </span>
             <a
               href={`tel:${TEMPLE_INFO.phone}`}
               className="text-amber-300 hover:text-amber-200 font-semibold flex items-center gap-1"
@@ -86,30 +83,30 @@ export default function Navbar() {
 
             {/* Desktop Navigation Links */}
             <nav className="hidden lg:flex items-center space-x-1 text-sm font-medium">
-              <a
+              <Link
                 href="/#menu"
                 className="px-4 py-2 rounded-full text-stone-200 hover:text-amber-300 hover:bg-white/5 transition-all duration-200"
               >
                 Snacks &amp; Delicacies
-              </a>
-              <a
-                href="/#about"
-                className="px-4 py-2 rounded-full text-stone-200 hover:text-amber-300 hover:bg-white/5 transition-all duration-200"
-              >
-                The Sattvik Purity
-              </a>
-              <a
+              </Link>
+              <Link
                 href="/#price-list"
                 className="px-4 py-2 rounded-full text-stone-200 hover:text-amber-300 hover:bg-white/5 transition-all duration-200"
               >
                 Price Sheet
-              </a>
-              <a
+              </Link>
+              <Link
                 href="/#pickup"
                 className="px-4 py-2 rounded-full text-stone-200 hover:text-amber-300 hover:bg-white/5 transition-all duration-200"
               >
                 Temple Pickup
-              </a>
+              </Link>
+              <Link
+                href="/#about"
+                className="px-4 py-2 rounded-full text-stone-200 hover:text-amber-300 hover:bg-white/5 transition-all duration-200"
+              >
+                The Sattvik Purity
+              </Link>
             </nav>
 
             {/* Right Action: Adaptive Order CTA */}
@@ -131,7 +128,7 @@ export default function Navbar() {
                 <button
                   onClick={openZeffy}
                   className="relative group inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#4d8b31] hover:bg-[#3c7025] text-white font-semibold text-xs sm:text-sm shadow-md hover:shadow-emerald-900/40 active:scale-[0.97] transition-all duration-200 cursor-pointer"
-                  aria-label="Order Online via Zeffy"
+                  aria-label="Order Online"
                 >
                   <ShoppingBag className="w-4 h-4 text-amber-300 group-hover:rotate-6 transition-transform" />
                   <span>Order Online</span>
@@ -184,45 +181,45 @@ export default function Navbar() {
             >
               <span className="flex items-center gap-2">
                 <ShoppingBag className="w-4 h-4 text-amber-300" />
-                <span>Order Online (Zeffy Store)</span>
+                <span>Order Online</span>
               </span>
               <ChevronRight className="w-4 h-4 text-white/80" />
             </button>
           )}
 
           <div className="space-y-1 pt-1">
-            <a
+            <Link
               href="/#menu"
               onClick={() => setMobileMenuOpen(false)}
               className="flex items-center justify-between px-3.5 py-2.5 rounded-xl text-stone-200 hover:text-white hover:bg-white/10 text-sm font-medium transition-colors"
             >
               <span>Snacks &amp; Delicacies</span>
               <ChevronRight className="w-3.5 h-3.5 text-amber-400/70" />
-            </a>
-            <a
+            </Link>
+            <Link
               href="/#about"
               onClick={() => setMobileMenuOpen(false)}
               className="flex items-center justify-between px-3.5 py-2.5 rounded-xl text-stone-200 hover:text-white hover:bg-white/10 text-sm font-medium transition-colors"
             >
               <span>The Sattvik Purity</span>
               <ChevronRight className="w-3.5 h-3.5 text-amber-400/70" />
-            </a>
-            <a
+            </Link>
+            <Link
               href="/#price-list"
               onClick={() => setMobileMenuOpen(false)}
               className="flex items-center justify-between px-3.5 py-2.5 rounded-xl text-stone-200 hover:text-white hover:bg-white/10 text-sm font-medium transition-colors"
             >
               <span>Price Sheet</span>
               <ChevronRight className="w-3.5 h-3.5 text-amber-400/70" />
-            </a>
-            <a
+            </Link>
+            <Link
               href="/#pickup"
               onClick={() => setMobileMenuOpen(false)}
               className="flex items-center justify-between px-3.5 py-2.5 rounded-xl text-stone-200 hover:text-white hover:bg-white/10 text-sm font-medium transition-colors"
             >
               <span>Pickup &amp; Temple Hours</span>
               <ChevronRight className="w-3.5 h-3.5 text-amber-400/70" />
-            </a>
+            </Link>
           </div>
 
           <div className="pt-3 border-t border-white/10 space-y-2 text-xs text-stone-300">

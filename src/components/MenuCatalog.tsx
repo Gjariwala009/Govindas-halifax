@@ -3,7 +3,7 @@
 import React, { useState, useMemo } from 'react';
 import { MENU_ITEMS, CATEGORIES, Category } from '@/data/menu';
 import ProductCard from './ProductCard';
-import { Search, Sparkles, X, SlidersHorizontal, ArrowUpDown, Flame } from 'lucide-react';
+import { Search, Sparkles, X, SlidersHorizontal, ArrowUpDown } from 'lucide-react';
 
 export default function MenuCatalog() {
   const [selectedCategory, setSelectedCategory] = useState<Category>('All');
@@ -76,16 +76,16 @@ export default function MenuCatalog() {
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-100 text-amber-900 text-xs font-semibold uppercase tracking-wider mb-3 border border-amber-300/60">
+          <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-amber-100 text-amber-900 text-xs font-semibold uppercase tracking-wider mb-3 border border-amber-300/60">
             <Sparkles className="w-3.5 h-3.5 text-amber-600" />
-            <span>Govinda&apos;s Satvik Foods • 20 Delicacies</span>
+            <span>Sacred Temple Kitchen</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-serif font-bold text-stone-900 tracking-tight">
-            Handcrafted Sattvik Delicacies
+            Handcrafted Delicacies &amp; Snacks
           </h2>
           <p className="mt-3 text-stone-600 text-sm sm:text-base leading-relaxed">
-            All 20 authentic packaged items are 100% pure vegetarian, prepared without onion or garlic,
-            and offered with devotion. Discover traditional Indian snacks, fasting crunchies, and gourmet meals.
+            Prepared with pure ingredients, mindful meditation, and offered with heartfelt devotion.
+            Discover authentic Indian savory snacks, fasting crunchies, and comforting gourmet meals.
           </p>
         </div>
 
@@ -117,42 +117,69 @@ export default function MenuCatalog() {
             <div className="flex flex-wrap items-center gap-2">
               <button
                 onClick={() => setOnlyEkadashi(!onlyEkadashi)}
-                className={`px-3 py-2 rounded-xl text-xs font-semibold transition-all border cursor-pointer active:scale-95 ${
+                className={`inline-flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-semibold transition-all border cursor-pointer active:scale-95 ${
                   onlyEkadashi
-                    ? 'bg-purple-700 text-white border-purple-700 shadow-sm'
-                    : 'bg-stone-50 text-stone-700 border-stone-200 hover:bg-stone-100'
+                    ? 'bg-[#3e0e14] text-white border-[#3e0e14] shadow-sm'
+                    : 'bg-stone-50 text-stone-700 border-stone-200 hover:bg-stone-100 hover:border-stone-300'
                 }`}
               >
-                🕉️ Ekadashi Fasting ({MENU_ITEMS.filter((i) => i.isEkadashi).length})
+                <span>🕉️ Ekadashi Fasting</span>
+                <span
+                  className={`text-[10px] px-1.5 py-0.5 rounded-full font-bold ${
+                    onlyEkadashi
+                      ? 'bg-amber-400 text-stone-950'
+                      : 'bg-stone-200 text-stone-600'
+                  }`}
+                >
+                  {MENU_ITEMS.filter((i) => i.isEkadashi).length}
+                </span>
               </button>
 
               <button
                 onClick={() => setOnlyGlutenFree(!onlyGlutenFree)}
-                className={`px-3 py-2 rounded-xl text-xs font-semibold transition-all border cursor-pointer active:scale-95 ${
+                className={`inline-flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-semibold transition-all border cursor-pointer active:scale-95 ${
                   onlyGlutenFree
-                    ? 'bg-amber-600 text-white border-amber-600 shadow-sm'
-                    : 'bg-stone-50 text-stone-700 border-stone-200 hover:bg-stone-100'
+                    ? 'bg-[#3e0e14] text-white border-[#3e0e14] shadow-sm'
+                    : 'bg-stone-50 text-stone-700 border-stone-200 hover:bg-stone-100 hover:border-stone-300'
                 }`}
               >
-                🌾 Gluten-Free ({MENU_ITEMS.filter((i) => i.isGlutenFree).length})
+                <span>🌾 Gluten-Free</span>
+                <span
+                  className={`text-[10px] px-1.5 py-0.5 rounded-full font-bold ${
+                    onlyGlutenFree
+                      ? 'bg-amber-400 text-stone-950'
+                      : 'bg-stone-200 text-stone-600'
+                  }`}
+                >
+                  {MENU_ITEMS.filter((i) => i.isGlutenFree).length}
+                </span>
               </button>
 
               <button
                 onClick={() => setOnlyReadyToEat(!onlyReadyToEat)}
-                className={`px-3 py-2 rounded-xl text-xs font-semibold transition-all border cursor-pointer active:scale-95 ${
+                className={`inline-flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-semibold transition-all border cursor-pointer active:scale-95 ${
                   onlyReadyToEat
-                    ? 'bg-sky-700 text-white border-sky-700 shadow-sm'
-                    : 'bg-stone-50 text-stone-700 border-stone-200 hover:bg-stone-100'
+                    ? 'bg-[#3e0e14] text-white border-[#3e0e14] shadow-sm'
+                    : 'bg-stone-50 text-stone-700 border-stone-200 hover:bg-stone-100 hover:border-stone-300'
                 }`}
               >
-                ⚡ Ready Meals ({MENU_ITEMS.filter((i) => i.isReadyToEat).length})
+                <span>⚡ Ready Meals</span>
+                <span
+                  className={`text-[10px] px-1.5 py-0.5 rounded-full font-bold ${
+                    onlyReadyToEat
+                      ? 'bg-amber-400 text-stone-950'
+                      : 'bg-stone-200 text-stone-600'
+                  }`}
+                >
+                  {MENU_ITEMS.filter((i) => i.isReadyToEat).length}
+                </span>
               </button>
 
               {/* Price Sort Dropdown */}
               <div className="relative">
                 <select
                   value={sortBy}
-                  onChange={(e) => setSortBy(e.target.value as any)}
+                  onChange={(e) => setSortBy(e.target.value as 'featured' | 'price-low' | 'price-high')}
                   className="appearance-none bg-stone-50 border border-stone-200 text-stone-800 text-xs font-semibold rounded-xl px-3.5 py-2 pr-8 hover:bg-stone-100 transition-all cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#3e0e14]"
                 >
                   <option value="featured">Sort: Featured</option>

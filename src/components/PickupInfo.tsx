@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { MapPin, Clock, Phone, HeartHandshake, ShoppingBag, ShieldCheck, ArrowRight, ExternalLink } from 'lucide-react';
+import { MapPin, Clock, Phone, HeartHandshake, ShoppingBag, ShieldCheck, ExternalLink } from 'lucide-react';
 import { TEMPLE_INFO } from '@/data/menu';
 import { useCart } from '@/context/CartContext';
 
@@ -18,57 +18,18 @@ export default function PickupInfo() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 text-emerald-800 text-xs font-semibold uppercase tracking-wider mb-4 border border-emerald-200">
+        <div className="text-center max-w-3xl mx-auto mb-14">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-emerald-50 text-emerald-800 text-xs font-semibold uppercase tracking-wider mb-4 border border-emerald-200">
             <MapPin className="w-3.5 h-3.5 text-emerald-700" />
-            <span>Local Halifax Pickup • ISKCON Temple</span>
+            <span>Pickup Counter &amp; Temple Programs</span>
           </div>
           <h2 className="text-3xl sm:text-5xl font-serif font-bold text-stone-900 tracking-tight leading-tight">
-            How to Order &amp; Collect Your Delicacies
+            ISKCON Halifax Temple
           </h2>
           <p className="mt-4 text-stone-600 text-base sm:text-lg leading-relaxed font-normal">
-            Govinda&apos;s operates directly from ISKCON Halifax Temple. Order and pay online securely
-            through our verified Zeffy store, and collect your fresh package during temple weekend programs.
+            Visit our temple counter in Upper Tantallon to collect your fresh weekend order, meet the community,
+            and enjoy peaceful temple programs and festivals.
           </p>
-        </div>
-
-        {/* 3-Step Journey Cards with Calm Cream Finish */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
-          <div className="p-8 rounded-3xl bg-[#faf6f0] border border-[#eee4d5] relative group hover:border-amber-400/70 hover:shadow-sm transition-all duration-300">
-            <div className="w-10 h-10 rounded-full bg-[#3e0e14] text-white flex items-center justify-center font-bold text-sm mb-6">
-              01
-            </div>
-            <h3 className="font-serif font-bold text-xl text-stone-900 mb-2.5">
-              Select Your Delicacies
-            </h3>
-            <p className="text-stone-600 text-sm leading-relaxed font-normal">
-              Browse our 20 authentic packaged items—from crispy Kerala banana chips and whole-wheat khakhras to Ayurvedic Gulkand and rich Dal Makhani.
-            </p>
-          </div>
-
-          <div className="p-8 rounded-3xl bg-[#faf6f0] border border-[#eee4d5] relative group hover:border-amber-400/70 hover:shadow-sm transition-all duration-300">
-            <div className="w-10 h-10 rounded-full bg-[#3e0e14] text-white flex items-center justify-center font-bold text-sm mb-6">
-              02
-            </div>
-            <h3 className="font-serif font-bold text-xl text-stone-900 mb-2.5">
-              Order Online via Zeffy
-            </h3>
-            <p className="text-stone-600 text-sm leading-relaxed font-normal">
-              Tap &ldquo;Order Online&rdquo; to complete checkout directly through Zeffy. Every purchase directly supports ISKCON Halifax temple services and prasadam distribution.
-            </p>
-          </div>
-
-          <div className="p-8 rounded-3xl bg-[#faf6f0] border border-[#eee4d5] relative group hover:border-amber-400/70 hover:shadow-sm transition-all duration-300">
-            <div className="w-10 h-10 rounded-full bg-[#3e0e14] text-white flex items-center justify-center font-bold text-sm mb-6">
-              03
-            </div>
-            <h3 className="font-serif font-bold text-xl text-stone-900 mb-2.5">
-              Weekend Temple Pickup
-            </h3>
-            <p className="text-stone-600 text-sm leading-relaxed font-normal">
-              Collect your prepared order at the Govinda&apos;s counter at ISKCON Halifax during Saturday (4–6 PM) or Sunday (8–11 AM) temple programs.
-            </p>
-          </div>
         </div>
 
         {/* Temple Store Hours & Location Showcase - Dev Deep Maroon Card */}
@@ -140,7 +101,7 @@ export default function PickupInfo() {
                   className="inline-flex items-center gap-2.5 px-6 py-3 rounded-full bg-amber-400 hover:bg-amber-300 text-stone-950 font-bold text-xs sm:text-sm shadow-md transition-all active:scale-95 cursor-pointer"
                 >
                   <ShoppingBag className="w-4 h-4 text-stone-950" />
-                  <span>Order on Zeffy Store</span>
+                  <span>Order Online</span>
                 </button>
 
                 <a
@@ -181,7 +142,7 @@ export default function PickupInfo() {
                   <span>Guaranteed Weekend Pickup</span>
                 </div>
                 <p className="text-[11px] text-stone-300 leading-relaxed font-light">
-                  Simply present your Zeffy receipt or state your name at the Govinda&apos;s counter. Your fresh packet will be prepared and reserved for you.
+                  Simply present your order confirmation email or state your name at the Govinda&apos;s counter. Your fresh packet will be prepared and reserved for you.
                 </p>
               </div>
             </div>

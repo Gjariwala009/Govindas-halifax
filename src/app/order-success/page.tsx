@@ -8,7 +8,6 @@ import {
   MapPin,
   Clock,
   Phone,
-  ArrowRight,
   Download,
   ShoppingBag,
   HeartHandshake,
@@ -105,14 +104,14 @@ export default function OrderSuccessPage() {
             </button>
           </div>
 
-          {/* Order Metadata Strip - Real World Zeffy Pickup Details */}
+          {/* Order Metadata Strip - Real World Pickup Details */}
           <div className="mt-8 pt-8 border-t border-stone-200/80 grid grid-cols-1 sm:grid-cols-3 gap-4 text-left">
             <div className="p-4 rounded-2xl bg-[#faf6f0] border border-[#eee4d5]">
               <div className="text-xs text-stone-500 font-medium">Order Identification</div>
               <div className="text-sm sm:text-base font-bold text-stone-900 mt-0.5">Your Email or Phone</div>
               <div className="text-[11px] text-emerald-700 font-semibold mt-1 flex items-center gap-1">
                 <span className="w-2 h-2 rounded-full bg-emerald-500"></span>
-                Confirmed via Zeffy
+                Payment Confirmed
               </div>
             </div>
 
@@ -122,7 +121,7 @@ export default function OrderSuccessPage() {
                 <MailCheck className="w-4 h-4 text-emerald-600 shrink-0" />
                 Sent to your email
               </div>
-              <div className="text-[11px] text-stone-500 mt-1">Check your inbox for Zeffy receipt</div>
+              <div className="text-[11px] text-stone-500 mt-1">Check your inbox for order receipt</div>
             </div>
 
             <div className="p-4 rounded-2xl bg-[#faf6f0] border border-[#eee4d5]">
@@ -148,7 +147,7 @@ export default function OrderSuccessPage() {
                 Check Your Email
               </h3>
               <p className="text-stone-600 text-sm leading-relaxed">
-                Zeffy has emailed you an official payment receipt and order summary. Keep this on your phone.
+                An official payment receipt and order summary has been emailed to you. Keep this on your phone.
               </p>
             </div>
 
