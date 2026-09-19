@@ -58,7 +58,7 @@ export default function SattvikExplainer() {
                 href="#menu"
                 className="px-5 py-2.5 rounded-full bg-[#4d8b31] hover:bg-[#3c7025] text-white text-xs font-semibold transition-all shadow-md"
               >
-                View 20 Delicacies →
+                View All Delicacies →
               </a>
             </div>
           </div>

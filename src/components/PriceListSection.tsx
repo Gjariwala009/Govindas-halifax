@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import Image from 'next/image';
-import { Eye, FileText, Download, X, ExternalLink } from 'lucide-react';
+import { Eye, FileText, Download, X } from 'lucide-react';
 
 export default function PriceListSection() {
   const [isZoomed, setIsZoomed] = useState(false);
@@ -54,7 +54,7 @@ export default function PriceListSection() {
               </h2>
 
               <p className="text-stone-600 text-base sm:text-lg leading-relaxed font-normal">
-                Clear, transparent pricing in Canadian Dollars (CAD) for all 20 of our packaged Sattvik food items.
+                Clear, transparent pricing in Canadian Dollars (CAD) for all of our packaged Sattvik food items.
                 From <strong className="text-stone-900 font-semibold">$2.99</strong> crispy Khakhras to <strong className="text-stone-900 font-semibold">$8.99</strong> Ayurvedic Gulkand, every purchase directly supports the kitchen services of ISKCON Halifax.
               </p>
 
@@ -162,7 +162,7 @@ export default function PriceListSection() {
                 <span className="font-serif font-bold text-stone-900 text-sm sm:text-base">
                   Govinda&apos;s Satvik Foods — Retail Price Sheet
                 </span>
-                <span className="hidden sm:inline text-xs text-stone-500 font-medium">• 20 Delicacies</span>
+                <span className="hidden sm:inline text-xs text-stone-500 font-medium">• All Delicacies</span>
               </div>
               <div className="flex items-center gap-2">
                 <button

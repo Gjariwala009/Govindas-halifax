@@ -1,6 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
-import { Leaf, Heart, Phone, MapPin, Clock, Sparkles } from 'lucide-react';
+import { Heart, Phone, MapPin, Clock } from 'lucide-react';
 import { TEMPLE_INFO } from '@/data/menu';
 
 export default function Footer() {
@@ -37,17 +37,6 @@ export default function Footer() {
               Authentic Sattvik Indian snacks, traditional chikkis, stone-roasted khakhras, and gourmet ready meals.
               100% pure vegetarian, non-allium (no onion &amp; no garlic), prepared and offered in pure devotion.
             </p>
-
-            <div className="flex flex-wrap gap-2 pt-1 text-[11px]">
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/5 border border-emerald-400/30 text-emerald-300 font-medium">
-                <Leaf className="w-3.5 h-3.5 text-emerald-400" />
-                <span>100% Sattvik Prasadam</span>
-              </span>
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/5 border border-amber-400/30 text-amber-300 font-medium">
-                <Sparkles className="w-3.5 h-3.5 text-amber-400" />
-                <span>No Onion &amp; Garlic</span>
-              </span>
-            </div>
           </div>
 
           {/* Col 2: Navigation Links */}
@@ -58,7 +47,7 @@ export default function Footer() {
             <ul className="space-y-2.5 text-xs sm:text-sm font-normal">
               <li>
                 <a href="#menu" className="text-stone-300 hover:text-amber-300 transition-colors">
-                  Snacks &amp; Delicacies (20 Items)
+                  Snacks &amp; Delicacies (All Items)
                 </a>
               </li>
               <li>

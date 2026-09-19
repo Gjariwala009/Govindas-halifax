@@ -69,28 +69,29 @@ export default function ProductCard({ item }: ProductCardProps) {
 
       {/* Bottom Attributes, Dietary Chips & Order Button */}
       <div>
-        {/* Dietary micro-chips */}
-        <div className="flex flex-wrap gap-1.5 mb-4">
-          <span className="inline-flex items-center text-[10px] font-medium px-2 py-0.5 rounded-md bg-emerald-50 text-emerald-800 border border-emerald-200">
-            🌿 Sattvik
-          </span>
-          {item.isEkadashi && (
-            <span className="inline-flex items-center text-[10px] font-medium px-2 py-0.5 rounded-md bg-purple-50 text-purple-800 border border-purple-200">
-              🕉️ Fasting
-            </span>
-          )}
-          {item.isGlutenFree && (
-            <span className="inline-flex items-center text-[10px] font-medium px-2 py-0.5 rounded-md bg-amber-50 text-amber-800 border border-amber-200">
-              🌾 Gluten-Free
-            </span>
-          )}
-          {item.isReadyToEat && (
-            <span className="inline-flex items-center gap-1 text-[10px] font-medium px-2 py-0.5 rounded-md bg-sky-50 text-sky-800 border border-sky-200">
-              <Clock className="w-2.5 h-2.5 text-sky-600" />
-              Ready Meal
-            </span>
-          )}
-        </div>
+        {/* Dietary distinguishing chips - rendered only when item has specific dietary traits */}
+        {(item.isEkadashi || item.isGlutenFree || item.isReadyToEat) ? (
+          <div className="flex flex-wrap gap-1.5 mb-4 min-h-[22px]">
+            {item.isEkadashi && (
+              <span className="inline-flex items-center text-[10px] font-medium px-2 py-0.5 rounded-md bg-purple-50 text-purple-800 border border-purple-200">
+                🕉️ Fasting
+              </span>
+            )}
+            {item.isGlutenFree && (
+              <span className="inline-flex items-center text-[10px] font-medium px-2 py-0.5 rounded-md bg-amber-50 text-amber-800 border border-amber-200">
+                🌾 Gluten-Free
+              </span>
+            )}
+            {item.isReadyToEat && (
+              <span className="inline-flex items-center gap-1 text-[10px] font-medium px-2 py-0.5 rounded-md bg-sky-50 text-sky-800 border border-sky-200">
+                <Clock className="w-2.5 h-2.5 text-sky-600" />
+                Ready Meal
+              </span>
+            )}
+          </div>
+        ) : (
+          <div className="mb-4 h-[22px]"></div>
+        )}
 
         {/* Bottom Price & Order CTA */}
         <div className="pt-3 border-t border-stone-100 flex items-center justify-between gap-2">
@@ -105,7 +106,7 @@ export default function ProductCard({ item }: ProductCardProps) {
           <button
             onClick={openZeffy}
             className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all active:scale-95 bg-[#3e0e14] hover:bg-[#571720] text-white shadow-sm cursor-pointer"
-            aria-label={`Order ${item.name} on Zeffy`}
+            aria-label={`Order ${item.name}`}
           >
             <ShoppingBag className="w-4 h-4 text-amber-300" />
             <span>Order</span>
