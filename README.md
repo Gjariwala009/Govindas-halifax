@@ -29,6 +29,26 @@ To learn more about Next.js, take a look at the following resources:
 
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
+## Zeffy integration
+
+The payment success page is available at `/order-success`. Zeffy webhooks are
+server-to-server notifications, so they cannot redirect the buyer's browser.
+Configure both of these settings in Zeffy:
+
+- Webhook URL: `https://your-domain.example/api/zeffy/webhook`
+- Event: `payment.completed`
+- Custom thank-you redirect: `https://your-domain.example/order-success`
+
+Set the webhook signing secret in the deployment environment:
+
+```bash
+ZEFFY_WEBHOOK_SECRET=whsec_...
+```
+
+The webhook route verifies Zeffy's `Zeffy-Signature` HMAC before accepting a
+successful payment notification. Request the custom thank-you redirect through
+Zeffy support if it is not available in the campaign settings.
+
 ## Deploy on Vercel
 
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
