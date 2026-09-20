@@ -1,7 +1,7 @@
 'use client';
 
 import React, { createContext, useContext, useState, useEffect } from 'react';
-import { MenuItem } from '@/data/menu';
+import { MENU_ITEMS, MenuItem } from '@/data/menu';
 
 export interface CartItem {
   item: MenuItem;
@@ -27,6 +27,33 @@ interface CartContextType {
 
 const CartContext = createContext<CartContextType | undefined>(undefined);
 
+const MAX_ITEM_QUANTITY = 99;
+
+function normalizeCart(value: unknown): CartItem[] {
+  if (!Array.isArray(value)) return [];
+
+  return value.reduce<CartItem[]>((items, entry) => {
+    if (!entry || typeof entry !== 'object') return items;
+
+    const candidate = entry as { item?: { id?: unknown }; quantity?: unknown };
+    const itemId = candidate.item?.id;
+    const quantity = candidate.quantity;
+    const item = MENU_ITEMS.find((menuItem) => menuItem.id === itemId);
+
+    if (
+      !item ||
+      typeof quantity !== 'number' ||
+      !Number.isInteger(quantity) ||
+      quantity < 1 ||
+      quantity > MAX_ITEM_QUANTITY
+    ) {
+      return items;
+    }
+
+    return [...items, { item, quantity }];
+  }, []);
+}
+
 export function CartProvider({ children }: { children: React.ReactNode }) {
   const [cart, setCart] = useState<CartItem[]>([]);
   const [isOpen, setIsOpen] = useState(false);
@@ -39,7 +66,7 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
       try {
         const saved = localStorage.getItem('govindas_cart');
         if (saved) {
-          setCart(JSON.parse(saved));
+          setCart(normalizeCart(JSON.parse(saved)));
         }
       } catch (e) {
         console.error('Failed to load cart from localStorage', e);
@@ -75,7 +102,7 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
       if (existing) {
         return prev.map((entry) =>
           entry.item.id === item.id
-            ? { ...entry, quantity: entry.quantity + 1 }
+            ? { ...entry, quantity: Math.min(entry.quantity + 1, MAX_ITEM_QUANTITY) }
             : entry
         );
       }
@@ -93,6 +120,7 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
       removeItem(id);
       return;
     }
+    if (!Number.isInteger(quantity) || quantity > MAX_ITEM_QUANTITY) return;
     setCart((prev) =>
       prev.map((entry) =>
         entry.item.id === id ? { ...entry, quantity } : entry

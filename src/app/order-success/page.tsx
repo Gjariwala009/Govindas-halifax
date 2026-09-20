@@ -79,12 +79,12 @@ export default function OrderSuccessPage() {
           {/* Joyful Pill Badge */}
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-50 text-emerald-800 text-xs sm:text-sm font-semibold border border-emerald-200 shadow-xs mb-4">
             <Sparkles className="w-4 h-4 text-emerald-600" />
-            <span>Payment Successful • Order Confirmed</span>
+            <span>Order Submitted • Check Your Receipt</span>
           </div>
 
           {/* Headline */}
           <h1 className="text-3xl sm:text-5xl font-serif font-bold text-stone-900 tracking-tight leading-tight">
-            Hare Krishna! Your Delicacies Are Confirmed!
+            Hare Krishna! Thank You for Your Order!
           </h1>
 
           <p className="mt-4 text-stone-600 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed font-normal">
@@ -107,11 +107,11 @@ export default function OrderSuccessPage() {
           {/* Order Metadata Strip - Real World Pickup Details */}
           <div className="mt-8 pt-8 border-t border-stone-200/80 grid grid-cols-1 sm:grid-cols-3 gap-4 text-left">
             <div className="p-4 rounded-2xl bg-[#faf6f0] border border-[#eee4d5]">
-              <div className="text-xs text-stone-500 font-medium">Order Identification</div>
+                <div className="text-xs text-stone-500 font-medium">Order Identification</div>
               <div className="text-sm sm:text-base font-bold text-stone-900 mt-0.5">Your Email or Phone</div>
               <div className="text-[11px] text-emerald-700 font-semibold mt-1 flex items-center gap-1">
                 <span className="w-2 h-2 rounded-full bg-emerald-500"></span>
-                Payment Confirmed
+                Check your Zeffy receipt
               </div>
             </div>
 

@@ -121,6 +121,7 @@ export default function ZeffyCheckoutModal() {
             className="w-full h-full min-h-[550px] sm:min-h-[640px] border-0"
             onLoad={() => setIsLoading(false)}
             allow="payment"
+            referrerPolicy="no-referrer"
           />
         </div>
 
