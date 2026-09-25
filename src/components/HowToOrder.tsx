@@ -3,6 +3,7 @@
 import React from 'react';
 import { MapPin, ShoppingBag, ArrowRight } from 'lucide-react';
 import { useCart } from '@/context/CartContext';
+import { TEMPLE_INFO } from '@/data/menu';
 
 export default function HowToOrder() {
   const { openZeffy } = useCart();
@@ -26,8 +27,8 @@ export default function HowToOrder() {
             How to Order &amp; Collect Your Delicacies
           </h2>
           <p className="mt-4 text-stone-600 text-base sm:text-lg leading-relaxed font-normal">
-            Govinda&apos;s operates directly from ISKCON Halifax Temple. Order and pay online securely
-            through our online store, and collect your fresh package during temple weekend programs.
+            Govinda&apos;s operates from ISKCON Halifax Temple. Order and pay online securely
+            through our online store, and collect your Delicacies.
           </p>
         </div>
 
@@ -42,7 +43,7 @@ export default function HowToOrder() {
                 Select Your Delicacies
               </h3>
               <p className="text-stone-600 text-sm leading-relaxed font-normal mb-6">
-                Browse our 20 authentic packaged items—from crispy Kerala banana chips and whole-wheat khakhras to Ayurvedic Gulkand and rich Dal Makhani.
+                Browse our authentic packaged items—from crispy Kerala banana chips and whole-wheat khakhras to Ayurvedic Gulkand and rich Dal Makhani.
               </p>
             </div>
             <div>
@@ -65,7 +66,7 @@ export default function HowToOrder() {
                 Order Online for Pickup
               </h3>
               <p className="text-stone-600 text-sm leading-relaxed font-normal mb-6">
-                Tap &ldquo;Order Online&rdquo; to select your favorites and complete checkout securely. Every purchase directly supports ISKCON Halifax temple services and prasadam distribution.
+                Tap &ldquo;Order Online&rdquo; to select your favorites and complete checkout securely. Every purchase directly supports ISKCON Halifax temple.
               </p>
             </div>
             <div>
@@ -88,7 +89,7 @@ export default function HowToOrder() {
                 Weekend Temple Pickup
               </h3>
               <p className="text-stone-600 text-sm leading-relaxed font-normal mb-6">
-                Collect your prepared order at the Govinda&apos;s counter at ISKCON Halifax during Saturday (4–6 PM) or Sunday (8–11 AM) temple programs.
+                Collect your prepared order at the Govinda&apos;s counter at ISKCON Halifax during {TEMPLE_INFO.pickupHoursSummary}.
               </p>
             </div>
             <div>

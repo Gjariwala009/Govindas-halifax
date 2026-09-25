@@ -65,14 +65,12 @@ export default function PickupInfo() {
                   <div>
                     <strong className="text-white block font-semibold">Weekly Pickup Hours:</strong>
                     <div className="mt-2 space-y-2 text-sm">
-                      <div className="flex items-center gap-2">
-                        <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
-                        <span><strong className="text-white font-medium">Saturdays:</strong> 4:00 PM – 6:00 PM (Youth &amp; Community Gathering)</span>
-                      </div>
-                      <div className="flex items-center gap-2">
-                        <span className="w-2.5 h-2.5 rounded-full bg-amber-400"></span>
-                        <span><strong className="text-white font-medium">Sundays:</strong> 8:00 AM – 11:00 AM (Sunday Love Feast &amp; Satsang)</span>
-                      </div>
+                      {TEMPLE_INFO.pickupSchedule.map((schedule, index) => (
+                        <div key={schedule.day} className="flex items-center gap-2">
+                          <span className={`w-2.5 h-2.5 rounded-full ${index === 0 ? 'bg-emerald-400 animate-pulse' : 'bg-amber-400'}`}></span>
+                          <span><strong className="text-white font-medium">{schedule.day}:</strong> {schedule.time}</span>
+                        </div>
+                      ))}
                     </div>
                     <p className="text-xs text-amber-200/80 mt-2 font-normal">
                       Also open during Vaishnava festivals: Janmashtami, Radhastami, Gaura Purnima, and Diwali.
@@ -139,7 +137,7 @@ export default function PickupInfo() {
               <div className="p-4 rounded-2xl bg-black/30 border border-white/10 space-y-2">
                 <div className="flex items-center gap-2 text-emerald-400 font-semibold text-xs">
                   <ShieldCheck className="w-4 h-4 text-emerald-400" />
-                  <span>Guaranteed Weekend Pickup</span>
+                  <span>Weekend Pickup</span>
                 </div>
                 <p className="text-[11px] text-stone-300 leading-relaxed font-light">
                   Simply present your order confirmation email or state your name at the Govinda&apos;s counter. Your fresh packet will be prepared and reserved for you.

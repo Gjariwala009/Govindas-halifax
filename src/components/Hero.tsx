@@ -70,7 +70,7 @@ export default function Hero() {
             <div className="pt-1 flex items-center justify-center lg:justify-start gap-2 text-xs text-amber-200/90 font-medium">
               <MapPin className="w-4 h-4 text-emerald-400 shrink-0" />
               <span>
-                Pick up at <strong className="text-white font-bold">{TEMPLE_INFO.templeName}</strong> on Saturdays 4–6 PM &amp; Sundays 8–11 AM
+                Pick up at <strong className="text-white font-bold">{TEMPLE_INFO.templeName}</strong> during {TEMPLE_INFO.pickupHoursSummary}
               </span>
             </div>
           </div>

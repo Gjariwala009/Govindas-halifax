@@ -86,7 +86,7 @@ export default function Footer() {
                 <Clock className="w-4 h-4 text-amber-400 shrink-0 mt-0.5" />
                 <div>
                   <strong className="text-white block font-semibold">Weekly Pickup Hours:</strong>
-                  <span>Saturdays 4:00 PM – 6:00 PM<br />Sundays 8:00 AM – 11:00 AM</span>
+                  <span>{TEMPLE_INFO.pickupHoursSummary}</span>
                 </div>
               </div>
 
