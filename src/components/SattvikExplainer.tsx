@@ -80,7 +80,7 @@ export default function SattvikExplainer() {
             <ul className="space-y-2 text-xs text-stone-700 font-medium border-t border-stone-200/60 pt-4">
               <li className="flex items-center gap-2">
                 <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
-                <span>100% Pure Vegetarian guarantee</span>
+                <span>100% Pure Vegetarian</span>
               </li>
               <li className="flex items-center gap-2">
                 <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />

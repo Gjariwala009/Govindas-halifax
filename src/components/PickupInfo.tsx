@@ -137,7 +137,7 @@ export default function PickupInfo() {
               <div className="p-4 rounded-2xl bg-black/30 border border-white/10 space-y-2">
                 <div className="flex items-center gap-2 text-emerald-400 font-semibold text-xs">
                   <ShieldCheck className="w-4 h-4 text-emerald-400" />
-                  <span>Guaranteed Weekend Pickup</span>
+                  <span>Weekend Pickup</span>
                 </div>
                 <p className="text-[11px] text-stone-300 leading-relaxed font-light">
                   Simply present your order confirmation email or state your name at the Govinda&apos;s counter. Your fresh packet will be prepared and reserved for you.
