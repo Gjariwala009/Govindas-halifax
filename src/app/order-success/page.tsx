@@ -127,7 +127,7 @@ export default function OrderSuccessPage() {
             <div className="p-4 rounded-2xl bg-[#faf6f0] border border-[#eee4d5]">
               <div className="text-xs text-stone-500 font-medium">Pickup Ready</div>
               <div className="text-sm font-bold text-stone-900 mt-1">This Weekend</div>
-              <div className="text-[11px] text-stone-600 mt-1">Sat 4–6 PM • Sun 8–11 AM</div>
+              <div className="text-[11px] text-stone-600 mt-1">{TEMPLE_INFO.pickupHoursSummary}</div>
             </div>
           </div>
         </div>
@@ -159,7 +159,7 @@ export default function OrderSuccessPage() {
                 Visit ISKCON Halifax
               </h3>
               <p className="text-stone-600 text-sm leading-relaxed">
-                Drop in during Saturday program (4:00 PM – 6:00 PM) or Sunday morning program (8:00 AM – 11:00 AM).
+                Drop in during {TEMPLE_INFO.pickupHoursSummary}.
               </p>
             </div>
 
@@ -199,7 +199,7 @@ export default function OrderSuccessPage() {
               <div className="flex flex-wrap gap-4 text-xs text-stone-300 pt-1">
                 <div className="flex items-center gap-2">
                   <Clock className="w-4 h-4 text-amber-400" />
-                  <span>Saturdays 4–6 PM • Sundays 8–11 AM</span>
+                  <span>{TEMPLE_INFO.pickupHoursSummary}</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <Phone className="w-4 h-4 text-amber-400" />

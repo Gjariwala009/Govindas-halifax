@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import { MENU_ITEMS, CATEGORIES, Category } from '@/data/menu';
 import ProductCard from './ProductCard';
 import { Search, Sparkles, X, SlidersHorizontal, ArrowUpDown } from 'lucide-react';
@@ -12,6 +12,30 @@ export default function MenuCatalog() {
   const [onlyGlutenFree, setOnlyGlutenFree] = useState(false);
   const [onlyReadyToEat, setOnlyReadyToEat] = useState(false);
   const [sortBy, setSortBy] = useState<'featured' | 'price-low' | 'price-high'>('featured');
+
+  useEffect(() => {
+    const applyRequestedCategory = (requestedCategory: string | null) => {
+      if (!requestedCategory || !CATEGORIES.includes(requestedCategory as Category)) return;
+      const category = requestedCategory as Category;
+      const timer = window.setTimeout(() => {
+        setSelectedCategory(category);
+        document.getElementById('menu')?.scrollIntoView({ behavior: 'smooth' });
+      }, 0);
+      return timer;
+    };
+
+    const initialTimer = applyRequestedCategory(new URLSearchParams(window.location.search).get('category'));
+    const handleCategoryChange = (event: Event) => {
+      const category = (event as CustomEvent<string>).detail;
+      applyRequestedCategory(category);
+    };
+    window.addEventListener('catalog-category-change', handleCategoryChange);
+
+    return () => {
+      if (initialTimer) window.clearTimeout(initialTimer);
+      window.removeEventListener('catalog-category-change', handleCategoryChange);
+    };
+  }, []);
 
   // Filter & sort items
   const filteredItems = useMemo(() => {

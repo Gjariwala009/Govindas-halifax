@@ -155,6 +155,80 @@
   animation: pulse-glow 3s ease-in-out infinite;
 }
 
+@keyframes diwali-sparkle {
+  0%, 100% { opacity: 0.35; transform: scale(0.8) rotate(0deg); }
+  50% { opacity: 1; transform: scale(1.15) rotate(18deg); }
+}
+
+.animate-diwali-sparkle { animation: diwali-sparkle 2s ease-in-out infinite; }
+.animate-diwali-sparkle-delayed { animation: diwali-sparkle 2.4s ease-in-out 0.8s infinite; }
+
+@keyframes diwali-confetti-fall {
+  0% { opacity: 0; transform: translate3d(0, -24px, 0) rotate(0deg); }
+  15% { opacity: 1; }
+  100% { opacity: 0.1; transform: translate3d(30px, 360px, 0) rotate(540deg); }
+}
+
+.diwali-confetti {
+  position: absolute;
+  top: -12px;
+  width: 7px;
+  height: 15px;
+  border-radius: 2px;
+  animation: diwali-confetti-fall 4.8s linear infinite;
+}
+
+.diwali-confetti-1 { left: 4%; background: #fbbf24; animation-delay: 0s; }
+.diwali-confetti-2 { left: 10%; background: #fb7185; animation-delay: 1.5s; }
+.diwali-confetti-3 { left: 17%; background: #34d399; animation-delay: 2.7s; }
+.diwali-confetti-4 { left: 25%; background: #f59e0b; animation-delay: 0.8s; }
+.diwali-confetti-5 { left: 33%; background: #fde68a; animation-delay: 3.1s; }
+.diwali-confetti-6 { left: 41%; background: #f43f5e; animation-delay: 1.9s; }
+.diwali-confetti-7 { left: 49%; background: #6ee7b7; animation-delay: 0.4s; }
+.diwali-confetti-8 { left: 57%; background: #fbbf24; animation-delay: 2.2s; }
+.diwali-confetti-9 { left: 65%; background: #fda4af; animation-delay: 3.6s; }
+.diwali-confetti-10 { left: 73%; background: #34d399; animation-delay: 1.1s; }
+.diwali-confetti-11 { left: 81%; background: #f59e0b; animation-delay: 2.9s; }
+.diwali-confetti-12 { left: 89%; background: #a7f3d0; animation-delay: 4s; }
+.diwali-confetti-13 { left: 96%; background: #fb7185; animation-delay: 4.4s; }
+.diwali-confetti-14 { left: 7%; background: #fde68a; animation-delay: 0.2s; }
+.diwali-confetti-15 { left: 22%; background: #fbbf24; animation-delay: 2.5s; }
+.diwali-confetti-16 { left: 38%; background: #fb7185; animation-delay: 3.8s; }
+.diwali-confetti-17 { left: 54%; background: #34d399; animation-delay: 1.3s; }
+.diwali-confetti-18 { left: 70%; background: #f59e0b; animation-delay: 4.1s; }
+.diwali-confetti-19 { left: 86%; background: #fde68a; animation-delay: 2s; }
+.diwali-confetti-20 { left: 14%; background: #6ee7b7; animation-delay: 3.3s; }
+.diwali-confetti-21 { left: 47%; background: #f43f5e; animation-delay: 0.6s; }
+.diwali-confetti-22 { left: 78%; background: #fbbf24; animation-delay: 3.5s; }
+
+.diwali-sparkler {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  opacity: 0.7;
+  animation: diwali-sparkle 2.2s ease-in-out infinite;
+}
+
+.diwali-sparkler::before,
+.diwali-sparkler::after {
+  content: '';
+  position: absolute;
+  inset: 8px;
+  background: #fcd34d;
+  box-shadow: 0 0 12px 3px rgba(251, 191, 36, 0.7);
+}
+
+.diwali-sparkler::before { transform: rotate(45deg); }
+.diwali-sparkler::after { transform: rotate(0deg); }
+.diwali-sparkler-1 { left: 5%; top: 24%; }
+.diwali-sparkler-2 { left: 21%; top: 70%; animation-delay: 0.6s; transform: scale(0.7); }
+.diwali-sparkler-3 { left: 39%; top: 16%; animation-delay: 1.2s; transform: scale(0.55); }
+.diwali-sparkler-4 { right: 30%; top: 68%; animation-delay: 0.3s; transform: scale(0.8); }
+.diwali-sparkler-5 { right: 15%; top: 22%; animation-delay: 1.5s; transform: scale(0.65); }
+.diwali-sparkler-6 { right: 5%; top: 58%; animation-delay: 0.9s; transform: scale(0.5); }
+.diwali-sparkler-7 { left: 47%; bottom: 13%; animation-delay: 1.8s; transform: scale(0.6); }
+.diwali-sparkler-8 { right: 42%; top: 38%; animation-delay: 0.1s; transform: scale(0.45); }
+
 /* Custom Dev Warm Scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
