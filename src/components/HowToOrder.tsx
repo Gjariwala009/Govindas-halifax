@@ -63,10 +63,10 @@ export default function HowToOrder() {
                 02
               </div>
               <h3 className="font-serif font-bold text-xl text-stone-900 mb-2.5">
-                Order Online for Pickup
+                Order for Pickup
               </h3>
               <p className="text-stone-600 text-sm leading-relaxed font-normal mb-6">
-                Tap &ldquo;Order Online&rdquo; to select your favorites and complete checkout securely. Every purchase directly supports ISKCON Halifax temple.
+                Tap &ldquo;Order&rdquo; to select your favorites and complete checkout securely. Every purchase directly supports ISKCON Halifax temple.
               </p>
             </div>
             <div>
@@ -75,7 +75,7 @@ export default function HowToOrder() {
                 className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#4d8b31] hover:bg-[#3c7025] text-white text-xs font-semibold shadow-sm transition-all active:scale-95 cursor-pointer"
               >
                 <ShoppingBag className="w-3.5 h-3.5 text-amber-300" />
-                <span>Order Online</span>
+                <span>Order</span>
               </button>
             </div>
           </div>

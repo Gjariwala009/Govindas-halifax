@@ -99,7 +99,7 @@ export default function PickupInfo() {
                   className="inline-flex items-center gap-2.5 px-6 py-3 rounded-full bg-amber-400 hover:bg-amber-300 text-stone-950 font-bold text-xs sm:text-sm shadow-md transition-all active:scale-95 cursor-pointer"
                 >
                   <ShoppingBag className="w-4 h-4 text-stone-950" />
-                  <span>Order Online</span>
+                  <span>Order</span>
                 </button>
 
                 <a

@@ -128,10 +128,10 @@ export default function Navbar() {
                 <button
                   onClick={openZeffy}
                   className="relative group inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#4d8b31] hover:bg-[#3c7025] text-white font-semibold text-xs sm:text-sm shadow-md hover:shadow-emerald-900/40 active:scale-[0.97] transition-all duration-200 cursor-pointer"
-                  aria-label="Order Online"
+                  aria-label="Order"
                 >
                   <ShoppingBag className="w-4 h-4 text-amber-300 group-hover:rotate-6 transition-transform" />
-                  <span>Order Online</span>
+                  <span>Order</span>
                 </button>
               )}
 
@@ -181,7 +181,7 @@ export default function Navbar() {
             >
               <span className="flex items-center gap-2">
                 <ShoppingBag className="w-4 h-4 text-amber-300" />
-                <span>Order Online</span>
+                <span>Order</span>
               </span>
               <ChevronRight className="w-4 h-4 text-white/80" />
             </button>
