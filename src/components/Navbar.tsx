@@ -31,7 +31,7 @@ export default function Navbar() {
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-1.5 text-center sm:text-left">
           <div className="flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-            <span>Pickup at ISKCON Halifax Temple: <strong>Saturdays 4–6 PM &amp; Sundays 8–11 AM</strong></span>
+            <span>Pickup at ISKCON Halifax Temple: <strong>{TEMPLE_INFO.pickupHoursSummary}</strong></span>
           </div>
           <div className="flex items-center gap-4 text-[11px]">
             <a
@@ -156,7 +156,7 @@ export default function Navbar() {
               <Clock className="w-3.5 h-3.5 text-amber-400" />
               <span>Weekend Temple Pickup Available</span>
             </p>
-            <p className="text-[11px] text-stone-300 mt-1">Saturdays 4–6 PM &amp; Sundays 8–11 AM at ISKCON Halifax Temple.</p>
+            <p className="text-[11px] text-stone-300 mt-1">{TEMPLE_INFO.pickupHoursSummary} at ISKCON Halifax Temple.</p>
           </div>
 
           {isSuccessPage ? (

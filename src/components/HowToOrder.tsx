@@ -3,6 +3,7 @@
 import React from 'react';
 import { MapPin, ShoppingBag, ArrowRight } from 'lucide-react';
 import { useCart } from '@/context/CartContext';
+import { TEMPLE_INFO } from '@/data/menu';
 
 export default function HowToOrder() {
   const { openZeffy } = useCart();
@@ -88,7 +89,7 @@ export default function HowToOrder() {
                 Weekend Temple Pickup
               </h3>
               <p className="text-stone-600 text-sm leading-relaxed font-normal mb-6">
-                Collect your prepared order at the Govinda&apos;s counter at ISKCON Halifax during Saturday (4–6 PM) or Sunday (8–11 AM) temple programs.
+                Collect your prepared order at the Govinda&apos;s counter at ISKCON Halifax during {TEMPLE_INFO.pickupHoursSummary}.
               </p>
             </div>
             <div>

@@ -65,14 +65,12 @@ export default function PickupInfo() {
                   <div>
                     <strong className="text-white block font-semibold">Weekly Pickup Hours:</strong>
                     <div className="mt-2 space-y-2 text-sm">
-                      <div className="flex items-center gap-2">
-                        <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
-                        <span><strong className="text-white font-medium">Saturdays:</strong> 4:00 PM – 6:00 PM (Youth &amp; Community Gathering)</span>
-                      </div>
-                      <div className="flex items-center gap-2">
-                        <span className="w-2.5 h-2.5 rounded-full bg-amber-400"></span>
-                        <span><strong className="text-white font-medium">Sundays:</strong> 8:00 AM – 11:00 AM (Sunday Love Feast &amp; Satsang)</span>
-                      </div>
+                      {TEMPLE_INFO.pickupSchedule.map((schedule, index) => (
+                        <div key={schedule.day} className="flex items-center gap-2">
+                          <span className={`w-2.5 h-2.5 rounded-full ${index === 0 ? 'bg-emerald-400 animate-pulse' : 'bg-amber-400'}`}></span>
+                          <span><strong className="text-white font-medium">{schedule.day}:</strong> {schedule.time}</span>
+                        </div>
+                      ))}
                     </div>
                     <p className="text-xs text-amber-200/80 mt-2 font-normal">
                       Also open during Vaishnava festivals: Janmashtami, Radhastami, Gaura Purnima, and Diwali.

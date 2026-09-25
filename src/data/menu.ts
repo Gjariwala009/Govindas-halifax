@@ -238,6 +238,15 @@ export const MENU_ITEMS: MenuItem[] = [
   },
 ];
 
+export const PICKUP_SCHEDULE = [
+  { day: 'Monday-Friday', time: '6:30 PM – 8:00 PM' },
+  { day: 'Saturday', time: '12:00 PM – 8:00 PM' },
+] as const;
+
+export const PICKUP_HOURS_SUMMARY = PICKUP_SCHEDULE
+  .map(({ day, time }) => `${day} ${time}`)
+  .join(' and ');
+
 export const TEMPLE_INFO = {
   name: "Govinda's Kitchen Halifax",
   tagline: "Serve with Love",
@@ -245,10 +254,9 @@ export const TEMPLE_INFO = {
   address: "29 Westwood Boulevard, Upper Tantallon, NS B3Z 1L3",
   templeName: "ISKCON Halifax Temple",
   phone: "+1 (902) 329-9889",
-  hours: "Saturdays 4:00 PM – 6:00 PM & Sundays 8:00 AM – 11:00 AM (during Temple Programs & Festivals)",
-  saturdayHours: "Saturdays 4:00 PM – 6:00 PM",
-  sundayHours: "Sundays 8:00 AM – 11:00 AM",
-  note: "Orders can be collected at ISKCON Halifax during Saturday and Sunday temple programs or arranged by phone.",
+  pickupSchedule: PICKUP_SCHEDULE,
+  pickupHoursSummary: PICKUP_HOURS_SUMMARY,
+  note: 'Orders can be collected at ISKCON Halifax during pickup hours or arranged by phone.',
   zeffyUrl: "https://www.zeffy.com/en-CA/ticketing/govindas-snacks",
   zeffyEmbedUrl: "https://www.zeffy.com/embed/ticketing/govindas-snacks",
 };
