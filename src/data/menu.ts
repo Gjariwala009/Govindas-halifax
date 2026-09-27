@@ -297,7 +297,7 @@ export const MENU_ITEMS: MenuItem[] = [
     id: 'chivda',
     image: '/images/products/chivda.png?v=3',
     name: 'Chivda',
-    category: 'Diwali Sweets',
+    category: 'Snacks',
     price: 7.99,
     weightOrUnit: 'Tub',
     description: 'Crisp poha snack mix with roasted peanuts, sev, raisins, and curry leaves.',
