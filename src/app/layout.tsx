@@ -19,15 +19,51 @@ const plusJakarta = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://govindas-halifax.vercel.app'),
-  title: "Govinda's Kitchen Halifax — Pure Sattvik Foods & Delicacies",
+  metadataBase: new URL('https://www.govindashalifax.ca'),
+  title: {
+    default: "Govinda's Kitchen Halifax — Pure Sattvik Indian Foods & Sweets",
+    template: "%s | Govinda's Halifax",
+  },
   description:
-    "Authentic Indian Sattvik snacks, traditional chikkis, whole-wheat khakhras, and gourmet ready-to-eat meals in Halifax, Nova Scotia. 100% Pure Vegetarian, No Onion & Garlic. Pick up at ISKCON Halifax Temple.",
+    "Authentic Indian Sattvik snacks, traditional sweets, Diwali specials, chikkis, whole-wheat khakhras, and ready-to-eat meals in Halifax, Nova Scotia. 100% Pure Vegetarian, No Onion & Garlic. Pickup at ISKCON Halifax Temple.",
+  keywords: [
+    "Govinda's Halifax",
+    "Govindas Halifax",
+    "Govinda's Kitchen Halifax",
+    "Govindas Kitchen",
+    "Sattvik Food Halifax",
+    "Indian Food Halifax",
+    "Pure Vegetarian Halifax",
+    "ISKCON Halifax",
+    "Indian Sweets Halifax",
+    "Halifax Indian Sweets",
+    "Diwali Sweets Halifax",
+    "Halifax Tiffin",
+    "No Onion No Garlic Halifax",
+    "Prasadam Halifax",
+  ],
+  authors: [{ name: "Govinda's Kitchen Halifax" }],
+  creator: "Govinda's Kitchen Halifax",
+  publisher: "Govinda's Kitchen Halifax",
+  alternates: {
+    canonical: 'https://www.govindashalifax.ca',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
   openGraph: {
     title: "Govinda's Kitchen Halifax — Pure Sattvik Foods & Delicacies",
     description:
       "100% Pure Vegetarian, No Onion & Garlic Sattvik snacks, sweets, and ready meals in Halifax, NS. Pick up at ISKCON Halifax Temple.",
-    url: 'https://govindas-halifax.vercel.app',
+    url: 'https://www.govindashalifax.ca',
     siteName: "Govinda's Kitchen Halifax",
     images: [
       {

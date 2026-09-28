@@ -45,7 +45,7 @@ export default function Hero() {
             {/* Campaign Chip */}
             <div className={`inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider shadow-lg shadow-amber-950/20 ${isDiwaliHero ? 'bg-amber-300 text-stone-950' : 'bg-white/10 border border-white/15 text-amber-300'}`}>
               {isDiwaliHero ? <Sparkles className="w-3.5 h-3.5" /> : <Star className="w-3.5 h-3.5 fill-amber-300" />}
-              <span>{isDiwaliHero ? 'Diwali Sweets Collection' : 'ISKCON Halifax Temple Kitchen'}</span>
+              <span>{isDiwaliHero ? "Govinda's Halifax • Diwali Sweets Collection" : "Govinda's Kitchen • ISKCON Halifax Temple"}</span>
             </div>
 
             {/* Main Headline */}
