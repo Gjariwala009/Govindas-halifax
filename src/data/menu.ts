@@ -296,7 +296,7 @@ export const MENU_ITEMS: MenuItem[] = [
   {
     id: 'chivda',
     image: '/images/products/chivda.png?v=4',
-    name: 'Chivda',
+    name: 'Diwali Special Chivda',
     category: 'Snacks',
     price: 7.99,
     weightOrUnit: 'Tub',
