@@ -11,11 +11,18 @@ export default function MenuCatalog() {
   const [onlyEkadashi, setOnlyEkadashi] = useState(false);
   const [onlyGlutenFree, setOnlyGlutenFree] = useState(false);
   const [onlyReadyToEat, setOnlyReadyToEat] = useState(false);
+  const [onlyPreOrder, setOnlyPreOrder] = useState(false);
   const [sortBy, setSortBy] = useState<'featured' | 'price-low' | 'price-high'>('featured');
 
   useEffect(() => {
     const applyRequestedCategory = (requestedCategory: string | null) => {
-      if (!requestedCategory || !CATEGORIES.includes(requestedCategory as Category)) return;
+      if (
+        !requestedCategory ||
+        !CATEGORIES.includes(requestedCategory as Category) ||
+        (requestedCategory !== 'All' && !MENU_ITEMS.some((item) => item.category === requestedCategory))
+      ) {
+        return;
+      }
       const category = requestedCategory as Category;
       const timer = window.setTimeout(() => {
         setSelectedCategory(category);
@@ -56,6 +63,10 @@ export default function MenuCatalog() {
       if (onlyReadyToEat && !item.isReadyToEat) {
         return false;
       }
+      // Pre-Order filter
+      if (onlyPreOrder && !item.isPreOrder) {
+        return false;
+      }
       // Search query filter
       if (searchQuery.trim()) {
         const query = searchQuery.toLowerCase().trim();
@@ -63,7 +74,8 @@ export default function MenuCatalog() {
         const matchesDesc = item.description.toLowerCase().includes(query);
         const matchesCategory = item.category.toLowerCase().includes(query);
         const matchesBadge = item.badge?.toLowerCase().includes(query);
-        return matchesName || matchesDesc || matchesCategory || Boolean(matchesBadge);
+        const matchesPreOrder = Boolean(item.isPreOrder) && (query.includes('pre') || 'pre-order'.includes(query));
+        return matchesName || matchesDesc || matchesCategory || Boolean(matchesBadge) || matchesPreOrder;
       }
       return true;
     });
@@ -75,7 +87,7 @@ export default function MenuCatalog() {
     }
 
     return result;
-  }, [selectedCategory, searchQuery, onlyEkadashi, onlyGlutenFree, onlyReadyToEat, sortBy]);
+  }, [selectedCategory, searchQuery, onlyEkadashi, onlyGlutenFree, onlyReadyToEat, onlyPreOrder, sortBy]);
 
   const clearFilters = () => {
     setSelectedCategory('All');
@@ -83,6 +95,7 @@ export default function MenuCatalog() {
     setOnlyEkadashi(false);
     setOnlyGlutenFree(false);
     setOnlyReadyToEat(false);
+    setOnlyPreOrder(false);
     setSortBy('featured');
   };
 
@@ -92,6 +105,7 @@ export default function MenuCatalog() {
     onlyEkadashi ||
     onlyGlutenFree ||
     onlyReadyToEat ||
+    onlyPreOrder ||
     sortBy !== 'featured';
 
   return (
@@ -121,7 +135,7 @@ export default function MenuCatalog() {
               <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-stone-400" />
               <input
                 type="text"
-                placeholder="Search delicacies (e.g. Banana Chips, Bombay Bhel, Gulkand, Khakhra, Halwa)..."
+                placeholder="Search delicacies (e.g. Banana Chips, Chivda, Ladoo, Khakhra)..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 className="w-full pl-10 pr-10 py-2.5 rounded-xl border border-stone-200 text-sm focus:outline-none focus:ring-2 focus:ring-[#3e0e14] focus:border-transparent bg-stone-50/50 hover:bg-stone-50 transition-all placeholder:text-stone-400 font-medium"
@@ -179,25 +193,49 @@ export default function MenuCatalog() {
                 </span>
               </button>
 
-              <button
-                onClick={() => setOnlyReadyToEat(!onlyReadyToEat)}
-                className={`inline-flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-semibold transition-all border cursor-pointer active:scale-95 ${
-                  onlyReadyToEat
-                    ? 'bg-[#3e0e14] text-white border-[#3e0e14] shadow-sm'
-                    : 'bg-stone-50 text-stone-700 border-stone-200 hover:bg-stone-100 hover:border-stone-300'
-                }`}
-              >
-                <span>⚡ Ready Meals</span>
-                <span
-                  className={`text-[10px] px-1.5 py-0.5 rounded-full font-bold ${
+              {MENU_ITEMS.filter((i) => i.isReadyToEat).length > 0 && (
+                <button
+                  onClick={() => setOnlyReadyToEat(!onlyReadyToEat)}
+                  className={`inline-flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-semibold transition-all border cursor-pointer active:scale-95 ${
                     onlyReadyToEat
-                      ? 'bg-amber-400 text-stone-950'
-                      : 'bg-stone-200 text-stone-600'
+                      ? 'bg-[#3e0e14] text-white border-[#3e0e14] shadow-sm'
+                      : 'bg-stone-50 text-stone-700 border-stone-200 hover:bg-stone-100 hover:border-stone-300'
                   }`}
                 >
-                  {MENU_ITEMS.filter((i) => i.isReadyToEat).length}
-                </span>
-              </button>
+                  <span>⚡ Ready Meals</span>
+                  <span
+                    className={`text-[10px] px-1.5 py-0.5 rounded-full font-bold ${
+                      onlyReadyToEat
+                        ? 'bg-amber-400 text-stone-950'
+                        : 'bg-stone-200 text-stone-600'
+                    }`}
+                  >
+                    {MENU_ITEMS.filter((i) => i.isReadyToEat).length}
+                  </span>
+                </button>
+              )}
+
+              {MENU_ITEMS.filter((i) => i.isPreOrder).length > 0 && (
+                <button
+                  onClick={() => setOnlyPreOrder(!onlyPreOrder)}
+                  className={`inline-flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-semibold transition-all border cursor-pointer active:scale-95 ${
+                    onlyPreOrder
+                      ? 'bg-amber-500 text-stone-950 border-amber-600 shadow-sm font-bold'
+                      : 'bg-stone-50 text-stone-700 border-stone-200 hover:bg-stone-100 hover:border-stone-300'
+                  }`}
+                >
+                  <span>📦 Pre-Order</span>
+                  <span
+                    className={`text-[10px] px-1.5 py-0.5 rounded-full font-bold ${
+                      onlyPreOrder
+                        ? 'bg-stone-950 text-amber-300'
+                        : 'bg-stone-200 text-stone-600'
+                    }`}
+                  >
+                    {MENU_ITEMS.filter((i) => i.isPreOrder).length}
+                  </span>
+                </button>
+              )}
 
               {/* Price Sort Dropdown */}
               <div className="relative">
@@ -222,11 +260,12 @@ export default function MenuCatalog() {
               <span>Category:</span>
             </span>
             {CATEGORIES.map((cat) => {
-              const isSelected = selectedCategory === cat;
               const count =
                 cat === 'All'
                   ? MENU_ITEMS.length
                   : MENU_ITEMS.filter((item) => item.category === cat).length;
+              if (cat !== 'All' && count === 0) return null;
+              const isSelected = selectedCategory === cat;
               return (
                 <button
                   key={cat}

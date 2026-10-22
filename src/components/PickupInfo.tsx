@@ -27,7 +27,7 @@ export default function PickupInfo() {
             ISKCON Halifax Temple
           </h2>
           <p className="mt-4 text-stone-600 text-base sm:text-lg leading-relaxed font-normal">
-            Visit our temple counter in Upper Tantallon to collect your fresh weekend order, meet the community,
+            Visit our temple counter in Upper Tantallon to collect your fresh order, meet the community,
             and enjoy peaceful temple programs and festivals.
           </p>
         </div>
@@ -137,7 +137,7 @@ export default function PickupInfo() {
               <div className="p-4 rounded-2xl bg-black/30 border border-white/10 space-y-2">
                 <div className="flex items-center gap-2 text-emerald-400 font-semibold text-xs">
                   <ShieldCheck className="w-4 h-4 text-emerald-400" />
-                  <span>Weekend Pickup</span>
+                  <span>Temple Pickup</span>
                 </div>
                 <p className="text-[11px] text-stone-300 leading-relaxed font-light">
                   Simply present your order confirmation email or state your name at the Govinda&apos;s counter. Your fresh packet will be prepared and reserved for you.

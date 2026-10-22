@@ -154,7 +154,7 @@ export default function Navbar() {
           <div className="p-3.5 rounded-2xl bg-white/5 border border-white/10 mb-3">
             <p className="text-xs text-amber-200 font-bold flex items-center gap-1.5">
               <Clock className="w-3.5 h-3.5 text-amber-400" />
-              <span>Weekend Temple Pickup Available</span>
+              <span>Temple Pickup Available</span>
             </p>
             <p className="text-[11px] text-stone-300 mt-1">{TEMPLE_INFO.pickupHoursSummary} at ISKCON Halifax Temple.</p>
           </div>

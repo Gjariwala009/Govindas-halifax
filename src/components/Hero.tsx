@@ -90,7 +90,7 @@ export default function Hero() {
               </Link>
             </div>
 
-            {/* Temple Weekend Pickup Guarantee */}
+            {/* Temple Pickup Guarantee */}
             <div className="pt-1 flex items-center justify-center lg:justify-start gap-2 text-xs text-amber-200/90 font-medium">
               <MapPin className="w-4 h-4 text-emerald-400 shrink-0" />
               <span>

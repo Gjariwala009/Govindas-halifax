@@ -62,7 +62,7 @@ export default function Footer() {
               </li>
               <li>
                 <a href="#pickup" className="text-stone-300 hover:text-amber-300 transition-colors">
-                  Temple Weekend Pickup
+                  Temple Pickup
                 </a>
               </li>
             </ul>

@@ -46,7 +46,7 @@ export default function PriceListSection() {
             <div className="lg:col-span-7 space-y-6">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-100 text-amber-900 text-xs font-semibold uppercase tracking-wider border border-amber-200">
                 <FileText className="w-3.5 h-3.5 text-amber-700" />
-                <span>Official Price Sheet • 6 Clear Price Tiers</span>
+                <span>Official Price Sheet • 5 Clear Price Tiers</span>
               </div>
 
               <h2 className="text-3xl sm:text-5xl font-serif font-bold text-stone-900 leading-tight tracking-tight">
@@ -55,7 +55,7 @@ export default function PriceListSection() {
 
               <p className="text-stone-600 text-base sm:text-lg leading-relaxed font-normal">
                 Clear, transparent pricing in Canadian Dollars (CAD) for all of our packaged Sattvik food items.
-                From <strong className="text-stone-900 font-semibold">$2.99</strong> crispy Khakhras to <strong className="text-stone-900 font-semibold">$8.99</strong> Ayurvedic Gulkand, every purchase directly supports the kitchen services of ISKCON Halifax.
+                From <strong className="text-stone-900 font-semibold">$2.99</strong> crispy Khakhras to <strong className="text-stone-900 font-semibold">$9.99+</strong> artisanal festive sweets (options by weight), every purchase directly supports the kitchen services of ISKCON Halifax.
               </p>
 
               {/* Price bracket grid with clean stone cards */}
@@ -69,31 +69,25 @@ export default function PriceListSection() {
                 <div className="p-4 rounded-2xl bg-stone-50 border border-stone-200 hover:border-amber-300 hover:shadow-xs transition-all">
                   <div className="text-xs text-stone-500 font-medium">Chikkis &amp; Chips</div>
                   <div className="text-2xl font-bold text-stone-900 mt-1">$3.99</div>
-                  <div className="text-[11px] text-stone-500 mt-0.5">Peanut, Til, Banana Chips</div>
+                  <div className="text-[11px] text-stone-500 mt-0.5">Peanut, Til, Banana Pepper</div>
                 </div>
 
                 <div className="p-4 rounded-2xl bg-stone-50 border border-stone-200 hover:border-amber-300 hover:shadow-xs transition-all">
-                  <div className="text-xs text-stone-500 font-medium">Bhel &amp; Street Mix</div>
-                  <div className="text-2xl font-bold text-stone-900 mt-1">$4.99</div>
-                  <div className="text-[11px] text-stone-500 mt-0.5">Authentic Bombay Bhel</div>
-                </div>
-
-                <div className="p-4 rounded-2xl bg-stone-50 border border-stone-200 hover:border-amber-300 hover:shadow-xs transition-all">
-                  <div className="text-xs text-stone-500 font-medium">Curries, Halwa &amp; Meals</div>
+                  <div className="text-xs text-stone-500 font-medium">Specialty Snacks</div>
                   <div className="text-2xl font-bold text-stone-900 mt-1">$5.99</div>
-                  <div className="text-[11px] text-stone-500 mt-0.5">Ready Meals, Makhana, Halwas</div>
+                  <div className="text-[11px] text-stone-500 mt-0.5">Beetroot Chips, Farali Chivda</div>
                 </div>
 
                 <div className="p-4 rounded-2xl bg-stone-50 border border-stone-200 hover:border-amber-300 hover:shadow-xs transition-all">
-                  <div className="text-xs text-stone-500 font-medium">Glass Jar Pickles</div>
-                  <div className="text-2xl font-bold text-stone-900 mt-1">$6.99</div>
-                  <div className="text-[11px] text-stone-500 mt-0.5">Mango &amp; Lemon Pickles</div>
+                  <div className="text-xs text-stone-500 font-medium">Savory Chivda</div>
+                  <div className="text-2xl font-bold text-stone-900 mt-1">$7.99</div>
+                  <div className="text-[11px] text-stone-500 mt-0.5">Crisp Poha &amp; Peanut Mix</div>
                 </div>
 
-                <div className="p-4 rounded-2xl bg-amber-50/50 border border-amber-200 hover:border-amber-300 hover:shadow-xs transition-all">
-                  <div className="text-xs text-amber-800 font-medium">Ayurvedic Gulkand</div>
-                  <div className="text-2xl font-bold text-stone-900 mt-1">$8.99</div>
-                  <div className="text-[11px] text-stone-500 mt-0.5">Pure Rose Petal Preserve</div>
+                <div className="p-4 rounded-2xl bg-amber-50/50 border border-amber-200 hover:border-amber-300 hover:shadow-xs transition-all sm:col-span-2">
+                  <div className="text-xs text-amber-800 font-medium">Artisanal Sweets (Multi-Weight)</div>
+                  <div className="text-2xl font-bold text-stone-900 mt-1">$9.99+</div>
+                  <div className="text-[11px] text-stone-500 mt-0.5">Starting at $9.99 • Rava &amp; Besan Ladoo, Jalebi, Kaju Katli &amp; Burfi</div>
                 </div>
               </div>
 

@@ -102,7 +102,7 @@ export default function SattvikExplainer() {
               Ekadashi Fasting Treats
             </h3>
             <p className="text-stone-600 text-xs sm:text-sm leading-relaxed mb-4 font-normal">
-              Grain-free snacks crafted for sacred Ekadashi fasts: Sabudana Khichdi, Farali Chivda, Makhana, and Rajgira chikkis made with mineral-rich sendha namak.
+              Grain-free snacks crafted for sacred Ekadashi fasts: Farali Chivda, Peanut Chikki, and Rajgira chikkis made with mineral-rich sendha namak.
             </p>
             <span className="inline-flex items-center gap-1 text-[11px] font-semibold text-purple-800 bg-purple-100 px-3 py-1 rounded-full border border-purple-200">
               🕉️ 100% Grain-Free Approved
@@ -118,7 +118,7 @@ export default function SattvikExplainer() {
               Ayurvedic Preservation
             </h3>
             <p className="text-stone-600 text-xs sm:text-sm leading-relaxed mb-4 font-normal">
-              From sun-cooked rose petal Gulkand to slow-roasted whole spices and cold-pressed jaggery, our items preserve natural prana and rejuvenating digestive wellness.
+              From slow-roasted whole spices and cold-pressed jaggery to wholesome roasted crisps, our items preserve natural prana and rejuvenating digestive wellness.
             </p>
             <span className="inline-flex items-center gap-1 text-[11px] font-semibold text-amber-800 bg-amber-100 px-3 py-1 rounded-full border border-amber-200">
               🌿 Natural Coolants &amp; Spices

@@ -25,21 +25,12 @@ export interface MenuItem {
   isGlutenFree?: boolean;
   isReadyToEat?: boolean;
   isPopular?: boolean;
+  isPreOrder?: boolean;
   badge?: string;
+  isHidden?: boolean;
 }
 
-export const MENU_ITEMS: MenuItem[] = [
-  {
-    id: 'bombay-bhel',
-    image: '/images/products/bombay-bhel.png',
-    name: 'Bombay Bhel',
-    category: 'Snacks',
-    price: 4.99,
-    weightOrUnit: 'Tub',
-    description: 'Crispy, tangy, and savory authentic Bombay street snack mix. Perfectly seasoned and 100% Sattvik.',
-    isPopular: true,
-    badge: 'Best Seller',
-  },
+export const ALL_MENU_ITEMS: MenuItem[] = [
   {
     id: 'gulkand',
     image: '/images/products/gulkand.png',
@@ -49,6 +40,8 @@ export const MENU_ITEMS: MenuItem[] = [
     weightOrUnit: 'Jar',
     description: 'Traditional Ayurvedic sun-cooked rose petal preserve. Natural coolant, rejuvenating, and deeply fragrant.',
     isPopular: true,
+    isPreOrder: true,
+    isHidden: true,
   },
   {
     id: 'peanut-chikki',
@@ -93,6 +86,7 @@ export const MENU_ITEMS: MenuItem[] = [
     isEkadashi: true,
     isGlutenFree: true,
     isPopular: true,
+    isHidden: true,
   },
   {
     id: 'banana-chips-yellow',
@@ -103,6 +97,7 @@ export const MENU_ITEMS: MenuItem[] = [
     weightOrUnit: 'Pouch',
     description: 'Thinly sliced, golden Kerala-style salted plantain chips. Crispy and delightfully savory.',
     isGlutenFree: true,
+    isHidden: true,
   },
   {
     id: 'banana-chips-pepper',
@@ -162,6 +157,8 @@ export const MENU_ITEMS: MenuItem[] = [
     price: 6.99,
     weightOrUnit: 'Glass Jar',
     description: 'Traditional Gujarati style tender raw mango pickle infused with roasted mustard, fenugreek seeds, and spices.',
+    isPreOrder: true,
+    isHidden: true,
   },
   {
     id: 'lemon-pickle',
@@ -171,6 +168,8 @@ export const MENU_ITEMS: MenuItem[] = [
     price: 6.99,
     weightOrUnit: 'Glass Jar',
     description: 'Sun-ripened lime wedges seasoned in natural rock salt and mild Indian spices. Tangy and digestive.',
+    isPreOrder: true,
+    isHidden: true,
   },
   {
     id: 'paneer-tikka-masala',
@@ -182,6 +181,8 @@ export const MENU_ITEMS: MenuItem[] = [
     description: 'Tender paneer cubes in a velvety tomato and cashew gravy. Freeze-dried convenience—just add boiling water and enjoy in 5 minutes!',
     isReadyToEat: true,
     badge: 'Quick Meal',
+    isPreOrder: true,
+    isHidden: true,
   },
   {
     id: 'dal-makhani',
@@ -193,6 +194,8 @@ export const MENU_ITEMS: MenuItem[] = [
     description: 'Slow-simmered black urad lentils and kidney beans cooked with butter and aromatic spices. 100% Sattvik freeze-dried ready meal.',
     isReadyToEat: true,
     isPopular: true,
+    isPreOrder: true,
+    isHidden: true,
   },
   {
     id: 'sabudana-khichdi',
@@ -206,6 +209,7 @@ export const MENU_ITEMS: MenuItem[] = [
     isGlutenFree: true,
     isReadyToEat: true,
     badge: 'Fasting Favorite',
+    isHidden: true,
   },
   {
     id: 'veg-kolhapuri',
@@ -216,6 +220,8 @@ export const MENU_ITEMS: MenuItem[] = [
     weightOrUnit: 'Pouch',
     description: 'Flavor-packed mixed garden vegetables simmered in a robust Maharashtrian spiced gravy without onion or garlic.',
     isReadyToEat: true,
+    isPreOrder: true,
+    isHidden: true,
   },
   {
     id: 'dudhi-halwa',
@@ -226,6 +232,8 @@ export const MENU_ITEMS: MenuItem[] = [
     weightOrUnit: 'Pouch',
     description: 'Traditional Indian sweet delicacy prepared from fresh bottle gourd (lauki), condensed milk, cardamom, and nuts.',
     isReadyToEat: true,
+    isPreOrder: true,
+    isHidden: true,
   },
   {
     id: 'gajar-halwa',
@@ -238,6 +246,8 @@ export const MENU_ITEMS: MenuItem[] = [
     isReadyToEat: true,
     isPopular: true,
     badge: 'Festive Delight',
+    isPreOrder: true,
+    isHidden: true,
   },
   {
     id: 'rava-ladoo',
@@ -282,13 +292,13 @@ export const MENU_ITEMS: MenuItem[] = [
     badge: 'Festive Delight',
   },
   {
-    id: 'kaju-burfi',
-    image: '/images/products/kaju-burfi.png?v=4',
-    name: 'Kaju Burfi',
+    id: 'kaju-katli',
+    image: '/images/products/kaju-katli.png?v=5',
+    name: 'Kaju Katli',
     category: 'Diwali Sweets',
     price: 9.99,
     weightOrUnit: 'Box',
-    description: 'Smooth cashew fudge with a naturally rich, melt-in-the-mouth finish.',
+    description: 'Smooth, melt-in-the-mouth cashew fudge diamond delicacies garnished with pistachio slivers.',
     isGlutenFree: true,
     isPopular: true,
     badge: 'Festive Delight',
@@ -304,6 +314,8 @@ export const MENU_ITEMS: MenuItem[] = [
     badge: 'Festive Delight',
   },
 ];
+
+export const MENU_ITEMS: MenuItem[] = ALL_MENU_ITEMS.filter((item) => !item.isHidden);
 
 export const PICKUP_SCHEDULE = [
   { day: 'Monday-Friday', time: '6:30 PM – 8:00 PM' },

@@ -43,7 +43,7 @@ export default function HowToOrder() {
                 Select Your Delicacies
               </h3>
               <p className="text-stone-600 text-sm leading-relaxed font-normal mb-6">
-                Browse our authentic packaged items—from crispy Kerala banana chips and whole-wheat khakhras to Ayurvedic Gulkand and rich Dal Makhani.
+                Browse our authentic packaged items—from crispy Kerala banana pepper chips and whole-wheat khakhras to golden chikkis and festive sweets.
               </p>
             </div>
             <div>
@@ -86,7 +86,7 @@ export default function HowToOrder() {
                 03
               </div>
               <h3 className="font-serif font-bold text-xl text-stone-900 mb-2.5">
-                Weekend Temple Pickup
+                Temple Pickup
               </h3>
               <p className="text-stone-600 text-sm leading-relaxed font-normal mb-6">
                 Collect your prepared order at the Govinda&apos;s counter at ISKCON Halifax during {TEMPLE_INFO.pickupHoursSummary}.

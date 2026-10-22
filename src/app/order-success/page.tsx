@@ -89,7 +89,7 @@ export default function OrderSuccessPage() {
 
           <p className="mt-4 text-stone-600 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed font-normal">
             Thank you for ordering with <strong className="text-stone-900 font-semibold">Govinda&apos;s Kitchen Halifax</strong>.
-            Your Sattvik food package is being prepared with pure devotion and will be ready for you this coming weekend.
+            Your Sattvik food package is being prepared with pure devotion and will be ready for pickup during scheduled temple hours.
           </p>
 
           {/* Re-trigger Confetti Button */}
@@ -126,7 +126,7 @@ export default function OrderSuccessPage() {
 
             <div className="p-4 rounded-2xl bg-[#faf6f0] border border-[#eee4d5]">
               <div className="text-xs text-stone-500 font-medium">Pickup Ready</div>
-              <div className="text-sm font-bold text-stone-900 mt-1">This Weekend</div>
+              <div className="text-sm font-bold text-stone-900 mt-1">Temple Pickup Hours</div>
               <div className="text-[11px] text-stone-600 mt-1">{TEMPLE_INFO.pickupHoursSummary}</div>
             </div>
           </div>

@@ -23,7 +23,12 @@ export default function ProductCard({ item }: ProductCardProps) {
           <span className="text-[10px] uppercase tracking-wider font-semibold px-2.5 py-0.5 rounded-full bg-stone-100 text-stone-600 border border-stone-200">
             {item.category}
           </span>
-          {item.badge ? (
+          {item.isPreOrder ? (
+            <span className="inline-flex items-center gap-1 text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-amber-500 text-stone-950 border border-amber-600/20 shadow-xs">
+              <Clock className="w-3 h-3 text-stone-950" />
+              Pre-Order
+            </span>
+          ) : item.badge ? (
             <span className="inline-flex items-center gap-1 text-[10px] font-semibold px-2.5 py-0.5 rounded-full bg-amber-100 text-amber-900 border border-amber-300">
               <Sparkles className="w-3 h-3 text-amber-600" />
               {item.badge}
@@ -70,8 +75,14 @@ export default function ProductCard({ item }: ProductCardProps) {
       {/* Bottom Attributes, Dietary Chips & Order Button */}
       <div>
         {/* Dietary distinguishing chips - rendered only when item has specific dietary traits */}
-        {(item.isEkadashi || item.isGlutenFree || item.isReadyToEat) ? (
+        {(item.isEkadashi || item.isGlutenFree || item.isReadyToEat || item.isPreOrder) ? (
           <div className="flex flex-wrap gap-1.5 mb-4 min-h-[22px]">
+            {item.isPreOrder && (
+              <span className="inline-flex items-center gap-1 text-[10px] font-semibold px-2 py-0.5 rounded-md bg-amber-100 text-amber-950 border border-amber-300/80">
+                <Clock className="w-2.5 h-2.5 text-amber-800" />
+                Pre-Order
+              </span>
+            )}
             {item.isEkadashi && (
               <span className="inline-flex items-center text-[10px] font-medium px-2 py-0.5 rounded-md bg-purple-50 text-purple-800 border border-purple-200">
                 🕉️ Fasting
@@ -96,20 +107,30 @@ export default function ProductCard({ item }: ProductCardProps) {
         {/* Bottom Price & Order CTA */}
         <div className="pt-3 border-t border-stone-100 flex items-center justify-between gap-2">
           <div>
-            <div className="text-[10px] uppercase font-medium text-stone-400">Price</div>
+            <div className="text-[10px] uppercase font-medium text-stone-400">
+              {item.category === 'Diwali Sweets' ? 'Starting From' : 'Price'}
+            </div>
             <div className="text-xl font-bold text-stone-900 tracking-tight">
-              ${item.price.toFixed(2)}{' '}
+              ${item.price.toFixed(2)}{item.category === 'Diwali Sweets' ? '+' : ''}{' '}
               <span className="text-xs font-normal text-stone-500">CAD</span>
             </div>
           </div>
 
           <button
             onClick={openZeffy}
-            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all active:scale-95 bg-[#3e0e14] hover:bg-[#571720] text-white shadow-sm cursor-pointer"
-            aria-label={`Order ${item.name}`}
+            className={`inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all active:scale-95 shadow-sm cursor-pointer ${
+              item.isPreOrder
+                ? 'bg-amber-500 hover:bg-amber-400 text-stone-950 font-bold'
+                : 'bg-[#3e0e14] hover:bg-[#571720] text-white'
+            }`}
+            aria-label={item.isPreOrder ? `Pre-order ${item.name}` : `Order ${item.name}`}
           >
-            <ShoppingBag className="w-4 h-4 text-amber-300" />
-            <span>Order</span>
+            {item.isPreOrder ? (
+              <Clock className="w-4 h-4 text-stone-950" />
+            ) : (
+              <ShoppingBag className="w-4 h-4 text-amber-300" />
+            )}
+            <span>{item.isPreOrder ? 'Pre-Order' : 'Order'}</span>
           </button>
         </div>
       </div>
