@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { Playfair_Display, Plus_Jakarta_Sans } from 'next/font/google';
+import Script from 'next/script';
 import './globals.css';
 import { CartProvider } from '@/context/CartContext';
 import Navbar from '@/components/Navbar';
@@ -115,6 +116,19 @@ export default function RootLayout({
           <Footer />
           <ZeffyCheckoutModal />
         </CartProvider>
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-0RN6KHP0VN"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-0RN6KHP0VN');
+          `}
+        </Script>
       </body>
     </html>
   );
