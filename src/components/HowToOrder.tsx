@@ -43,7 +43,7 @@ export default function HowToOrder() {
                 Select Your Delicacies
               </h3>
               <p className="text-stone-600 text-sm leading-relaxed font-normal mb-6">
-                Browse our authentic packaged items—from crispy Kerala banana pepper chips and whole-wheat khakhras to golden chikkis and festive sweets.
+                Browse our authentic packaged items—from crispy Kerala banana pepper chips and whole-wheat khakhras to golden chikkis and savory snacks.
               </p>
             </div>
             <div>

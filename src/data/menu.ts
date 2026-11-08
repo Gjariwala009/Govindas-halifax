@@ -9,7 +9,8 @@ export const CATEGORIES = [
   'Pickles',
 ] as const;
 
-export const HERO_VARIANT = 'diwali' as const;
+export type HeroVariant = 'standard' | 'diwali';
+export const HERO_VARIANT: HeroVariant = 'standard';
 
 export type Category = (typeof CATEGORIES)[number];
 
@@ -258,6 +259,7 @@ export const ALL_MENU_ITEMS: MenuItem[] = [
     weightOrUnit: 'Box',
     description: 'Tender semolina ladoos roasted in ghee and finished with sugar, cardamom, and delicate nutty notes.',
     badge: 'Festive Delight',
+    isHidden: true,
   },
   {
     id: 'besan-ladoo',
@@ -269,6 +271,7 @@ export const ALL_MENU_ITEMS: MenuItem[] = [
     description: 'Classic chickpea-flour ladoos slow-roasted in ghee with sugar and cardamom for a rich, crumbly finish.',
     isGlutenFree: true,
     badge: 'Festive Delight',
+    isHidden: true,
   },
   {
     id: 'jalebi',
@@ -279,6 +282,7 @@ export const ALL_MENU_ITEMS: MenuItem[] = [
     weightOrUnit: 'Box',
     description: 'Bright saffron-gold spirals of crisp fried batter soaked in fragrant sugar syrup and served as a festive treat.',
     badge: 'Festive Delight',
+    isHidden: true,
   },
   {
     id: 'coconut-burfi',
@@ -290,6 +294,7 @@ export const ALL_MENU_ITEMS: MenuItem[] = [
     description: 'Soft coconut fudge finished with a delicate toasted-coconut texture and festive sweetness.',
     isGlutenFree: true,
     badge: 'Festive Delight',
+    isHidden: true,
   },
   {
     id: 'kaju-katli',
@@ -302,6 +307,7 @@ export const ALL_MENU_ITEMS: MenuItem[] = [
     isGlutenFree: true,
     isPopular: true,
     badge: 'Festive Delight',
+    isHidden: true,
   },
   {
     id: 'chivda',
@@ -312,6 +318,7 @@ export const ALL_MENU_ITEMS: MenuItem[] = [
     weightOrUnit: 'Tub',
     description: 'Crisp poha snack mix with roasted peanuts, sev, raisins, and curry leaves.',
     badge: 'Festive Delight',
+    isHidden: true,
   },
 ];
 
